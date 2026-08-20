@@ -1,0 +1,157 @@
+{
+  "format": 1,
+  "restore": {
+    "/Users/halfdeb/Documents/Sushi/game/Ludo/LudoGame/src/LudoGame.Api/LudoGame.Api.csproj": {}
+  },
+  "projects": {
+    "/Users/halfdeb/Documents/Sushi/game/Ludo/LudoGame/src/LudoGame.Api/LudoGame.Api.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/halfdeb/Documents/Sushi/game/Ludo/LudoGame/src/LudoGame.Api/LudoGame.Api.csproj",
+        "projectName": "LudoGame.Api",
+        "projectPath": "/Users/halfdeb/Documents/Sushi/game/Ludo/LudoGame/src/LudoGame.Api/LudoGame.Api.csproj",
+        "packagesPath": "/Users/halfdeb/.nuget/packages/",
+        "outputPath": "/Users/halfdeb/Documents/Sushi/game/Ludo/LudoGame/src/LudoGame.Api/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/halfdeb/Documents/Sushi/game/Ludo/LudoGame/NuGet.Config",
+          "/Users/halfdeb/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "frameworks": {
+          "net8.0": {
+            "framework": "net8.0",
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "/Users/halfdeb/Documents/Sushi/game/Ludo/LudoGame/src/LudoGame.Core/LudoGame.Core.csproj": {
+                "projectPath": "/Users/halfdeb/Documents/Sushi/game/Ludo/LudoGame/src/LudoGame.Core/LudoGame.Core.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "10.0.300"
+      },
+      "frameworks": {
+        "net8.0": {
+          "framework": "net8.0",
+          "targetAlias": "net8.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[8.0.28, 8.0.28]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Host.osx-arm64",
+              "version": "[8.0.28, 8.0.28]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[8.0.28, 8.0.28]"
+            }
+          ],
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/Users/halfdeb/.dotnet/sdk/10.0.301/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/halfdeb/Documents/Sushi/game/Ludo/LudoGame/src/LudoGame.Core/LudoGame.Core.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/halfdeb/Documents/Sushi/game/Ludo/LudoGame/src/LudoGame.Core/LudoGame.Core.csproj",
+        "projectName": "LudoGame.Core",
+        "projectPath": "/Users/halfdeb/Documents/Sushi/game/Ludo/LudoGame/src/LudoGame.Core/LudoGame.Core.csproj",
+        "packagesPath": "/Users/halfdeb/.nuget/packages/",
+        "outputPath": "/Users/halfdeb/Documents/Sushi/game/Ludo/LudoGame/src/LudoGame.Core/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/halfdeb/Documents/Sushi/game/Ludo/LudoGame/NuGet.Config",
+          "/Users/halfdeb/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "frameworks": {
+          "net8.0": {
+            "framework": "net8.0",
+            "targetAlias": "net8.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "10.0.300"
+      },
+      "frameworks": {
+        "net8.0": {
+          "framework": "net8.0",
+          "targetAlias": "net8.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[8.0.28, 8.0.28]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[8.0.28, 8.0.28]"
+            }
+          ],
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/Users/halfdeb/.dotnet/sdk/10.0.301/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

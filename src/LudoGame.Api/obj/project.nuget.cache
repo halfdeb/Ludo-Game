@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "mEPErmw4tXA=",
+  "success": true,
+  "projectFilePath": "/Users/halfdeb/Documents/Sushi/game/Ludo/LudoGame/src/LudoGame.Api/LudoGame.Api.csproj",
+  "expectedPackageFiles": [
+    "/Users/halfdeb/.nuget/packages/microsoft.netcore.app.ref/8.0.28/microsoft.netcore.app.ref.8.0.28.nupkg.sha512",
+    "/Users/halfdeb/.nuget/packages/microsoft.aspnetcore.app.ref/8.0.28/microsoft.aspnetcore.app.ref.8.0.28.nupkg.sha512",
+    "/Users/halfdeb/.nuget/packages/microsoft.netcore.app.host.osx-arm64/8.0.28/microsoft.netcore.app.host.osx-arm64.8.0.28.nupkg.sha512"
+  ],
+  "logs": []
+}

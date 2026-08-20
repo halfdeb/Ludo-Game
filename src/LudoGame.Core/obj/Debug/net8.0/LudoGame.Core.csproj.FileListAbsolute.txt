@@ -1,0 +1,11 @@
+/Users/halfdeb/Downloads/LudoGame/src/LudoGame.Core/bin/Debug/net8.0/LudoGame.Core.deps.json
+/Users/halfdeb/Downloads/LudoGame/src/LudoGame.Core/bin/Debug/net8.0/LudoGame.Core.dll
+/Users/halfdeb/Downloads/LudoGame/src/LudoGame.Core/bin/Debug/net8.0/LudoGame.Core.pdb
+/Users/halfdeb/Downloads/LudoGame/src/LudoGame.Core/obj/Debug/net8.0/LudoGame.Core.GeneratedMSBuildEditorConfig.editorconfig
+/Users/halfdeb/Downloads/LudoGame/src/LudoGame.Core/obj/Debug/net8.0/LudoGame.Core.AssemblyInfoInputs.cache
+/Users/halfdeb/Downloads/LudoGame/src/LudoGame.Core/obj/Debug/net8.0/LudoGame.Core.AssemblyInfo.cs
+/Users/halfdeb/Downloads/LudoGame/src/LudoGame.Core/obj/Debug/net8.0/LudoGame.Core.csproj.CoreCompileInputs.cache
+/Users/halfdeb/Downloads/LudoGame/src/LudoGame.Core/obj/Debug/net8.0/LudoGame.Core.dll
+/Users/halfdeb/Downloads/LudoGame/src/LudoGame.Core/obj/Debug/net8.0/refint/LudoGame.Core.dll
+/Users/halfdeb/Downloads/LudoGame/src/LudoGame.Core/obj/Debug/net8.0/LudoGame.Core.pdb
+/Users/halfdeb/Downloads/LudoGame/src/LudoGame.Core/obj/Debug/net8.0/ref/LudoGame.Core.dll

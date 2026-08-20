@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "LudoGame.Core/1.0.0": {
+        "runtime": {
+          "LudoGame.Core.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "LudoGame.Core/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

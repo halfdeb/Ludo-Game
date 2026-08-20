@@ -1,0 +1,646 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>The Ogre Affairs</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,900;1,600&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script>
+/* @microsoft/signalr 8.0.0 browser client, vendored inline so this page has zero external script dependencies. */
+var t,e;t=self,e=()=>(()=>{var t={d:(e,s)=>{for(var i in s)t.o(s,i)&&!t.o(e,i)&&Object.defineProperty(e,i,{enumerable:!0,get:s[i]})}};t.g=function(){if("object"==typeof globalThis)return globalThis;try{return this||new Function("return this")()}catch(t){if("object"==typeof window)return window}}(),t.o=(t,e)=>Object.prototype.hasOwnProperty.call(t,e),t.r=t=>{"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(t,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(t,"t",{value:!0})};var e,s={};t.r(s),t.d(s,{AbortError:()=>r,DefaultHttpClient:()=>H,HttpClient:()=>d,HttpError:()=>i,HttpResponse:()=>u,HttpTransportType:()=>F,HubConnection:()=>q,HubConnectionBuilder:()=>tt,HubConnectionState:()=>A,JsonHubProtocol:()=>Y,LogLevel:()=>e,MessageType:()=>x,NullLogger:()=>f,Subject:()=>U,TimeoutError:()=>n,TransferFormat:()=>B,VERSION:()=>p});class i extends Error{constructor(t,e){const s=new.target.prototype;super(`${t}: Status code '${e}'`),this.statusCode=e,this.__proto__=s}}class n extends Error{constructor(t="A timeout occurred."){const e=new.target.prototype;super(t),this.__proto__=e}}class r extends Error{constructor(t="An abort occurred."){const e=new.target.prototype;super(t),this.__proto__=e}}class o extends Error{constructor(t,e){const s=new.target.prototype;super(t),this.transport=e,this.errorType="UnsupportedTransportError",this.__proto__=s}}class h extends Error{constructor(t,e){const s=new.target.prototype;super(t),this.transport=e,this.errorType="DisabledTransportError",this.__proto__=s}}class c extends Error{constructor(t,e){const s=new.target.prototype;super(t),this.transport=e,this.errorType="FailedToStartTransportError",this.__proto__=s}}class a extends Error{constructor(t){const e=new.target.prototype;super(t),this.errorType="FailedToNegotiateWithServerError",this.__proto__=e}}class l extends Error{constructor(t,e){const s=new.target.prototype;super(t),this.innerErrors=e,this.__proto__=s}}class u{constructor(t,e,s){this.statusCode=t,this.statusText=e,this.content=s}}class d{get(t,e){return this.send({...e,method:"GET",url:t})}post(t,e){return this.send({...e,method:"POST",url:t})}delete(t,e){return this.send({...e,method:"DELETE",url:t})}getCookieString(t){return""}}!function(t){t[t.Trace=0]="Trace",t[t.Debug=1]="Debug",t[t.Information=2]="Information",t[t.Warning=3]="Warning",t[t.Error=4]="Error",t[t.Critical=5]="Critical",t[t.None=6]="None"}(e||(e={}));class f{constructor(){}log(t,e){}}f.instance=new f;const p="8.0.0";class w{static isRequired(t,e){if(null==t)throw new Error(`The '${e}' argument is required.`)}static isNotEmpty(t,e){if(!t||t.match(/^\s*$/))throw new Error(`The '${e}' argument should not be empty.`)}static isIn(t,e,s){if(!(t in e))throw new Error(`Unknown ${s} value: ${t}.`)}}class g{static get isBrowser(){return!g.isNode&&"object"==typeof window&&"object"==typeof window.document}static get isWebWorker(){return!g.isNode&&"object"==typeof self&&"importScripts"in self}static get isReactNative(){return!g.isNode&&"object"==typeof window&&void 0===window.document}static get isNode(){return"undefined"!=typeof process&&process.release&&"node"===process.release.name}}function m(t,e){let s="";return y(t)?(s=`Binary data of length ${t.byteLength}`,e&&(s+=`. Content: '${function(t){const e=new Uint8Array(t);let s="";return e.forEach((t=>{s+=`0x${t<16?"0":""}${t.toString(16)} `})),s.substr(0,s.length-1)}(t)}'`)):"string"==typeof t&&(s=`String data of length ${t.length}`,e&&(s+=`. Content: '${t}'`)),s}function y(t){return t&&"undefined"!=typeof ArrayBuffer&&(t instanceof ArrayBuffer||t.constructor&&"ArrayBuffer"===t.constructor.name)}async function b(t,s,i,n,r,o){const h={},[c,a]=$();h[c]=a,t.log(e.Trace,`(${s} transport) sending data. ${m(r,o.logMessageContent)}.`);const l=y(r)?"arraybuffer":"text",u=await i.post(n,{content:r,headers:{...h,...o.headers},responseType:l,timeout:o.timeout,withCredentials:o.withCredentials});t.log(e.Trace,`(${s} transport) request complete. Response status: ${u.statusCode}.`)}class v{constructor(t,e){this.i=t,this.h=e}dispose(){const t=this.i.observers.indexOf(this.h);t>-1&&this.i.observers.splice(t,1),0===this.i.observers.length&&this.i.cancelCallback&&this.i.cancelCallback().catch((t=>{}))}}class E{constructor(t){this.l=t,this.out=console}log(t,s){if(t>=this.l){const i=`[${(new Date).toISOString()}] ${e[t]}: ${s}`;switch(t){case e.Critical:case e.Error:this.out.error(i);break;case e.Warning:this.out.warn(i);break;case e.Information:this.out.info(i);break;default:this.out.log(i)}}}}function $(){let t="X-SignalR-User-Agent";return g.isNode&&(t="User-Agent"),[t,C(p,S(),g.isNode?"NodeJS":"Browser",k())]}function C(t,e,s,i){let n="Microsoft SignalR/";const r=t.split(".");return n+=`${r[0]}.${r[1]}`,n+=` (${t}; `,n+=e&&""!==e?`${e}; `:"Unknown OS; ",n+=`${s}`,n+=i?`; ${i}`:"; Unknown Runtime Version",n+=")",n}function S(){if(!g.isNode)return"";switch(process.platform){case"win32":return"Windows NT";case"darwin":return"macOS";case"linux":return"Linux";default:return process.platform}}function k(){if(g.isNode)return process.versions.node}function P(t){return t.stack?t.stack:t.message?t.message:`${t}`}class T extends d{constructor(e){super(),this.u=e,this.p=fetch.bind(function(){if("undefined"!=typeof globalThis)return globalThis;if("undefined"!=typeof self)return self;if("undefined"!=typeof window)return window;if(void 0!==t.g)return t.g;throw new Error("could not find global")}()),this.m=AbortController,this.m}async send(t){if(t.abortSignal&&t.abortSignal.aborted)throw new r;if(!t.method)throw new Error("No method defined.");if(!t.url)throw new Error("No url defined.");const s=new this.m;let o;t.abortSignal&&(t.abortSignal.onabort=()=>{s.abort(),o=new r});let h,c=null;if(t.timeout){const i=t.timeout;c=setTimeout((()=>{s.abort(),this.u.log(e.Warning,"Timeout from HTTP request."),o=new n}),i)}""===t.content&&(t.content=void 0),t.content&&(t.headers=t.headers||{},y(t.content)?t.headers["Content-Type"]="application/octet-stream":t.headers["Content-Type"]="text/plain;charset=UTF-8");try{h=await this.p(t.url,{body:t.content,cache:"no-cache",credentials:!0===t.withCredentials?"include":"same-origin",headers:{"X-Requested-With":"XMLHttpRequest",...t.headers},method:t.method,mode:"cors",redirect:"follow",signal:s.signal})}catch(t){if(o)throw o;throw this.u.log(e.Warning,`Error from HTTP request. ${t}.`),t}finally{c&&clearTimeout(c),t.abortSignal&&(t.abortSignal.onabort=null)}if(!h.ok){const t=await I(h,"text");throw new i(t||h.statusText,h.status)}const a=I(h,t.responseType),l=await a;return new u(h.status,h.statusText,l)}getCookieString(t){let e="";return g.isNode&&this.v&&this.v.getCookies(t,((t,s)=>e=s.join("; "))),e}}function I(t,e){let s;switch(e){case"arraybuffer":s=t.arrayBuffer();break;case"text":default:s=t.text();break;case"blob":case"document":case"json":throw new Error(`${e} is not supported.`)}return s}class _ extends d{constructor(t){super(),this.u=t}send(t){return t.abortSignal&&t.abortSignal.aborted?Promise.reject(new r):t.method?t.url?new Promise(((s,o)=>{const h=new XMLHttpRequest;h.open(t.method,t.url,!0),h.withCredentials=void 0===t.withCredentials||t.withCredentials,h.setRequestHeader("X-Requested-With","XMLHttpRequest"),""===t.content&&(t.content=void 0),t.content&&(y(t.content)?h.setRequestHeader("Content-Type","application/octet-stream"):h.setRequestHeader("Content-Type","text/plain;charset=UTF-8"));const c=t.headers;c&&Object.keys(c).forEach((t=>{h.setRequestHeader(t,c[t])})),t.responseType&&(h.responseType=t.responseType),t.abortSignal&&(t.abortSignal.onabort=()=>{h.abort(),o(new r)}),t.timeout&&(h.timeout=t.timeout),h.onload=()=>{t.abortSignal&&(t.abortSignal.onabort=null),h.status>=200&&h.status<300?s(new u(h.status,h.statusText,h.response||h.responseText)):o(new i(h.response||h.responseText||h.statusText,h.status))},h.onerror=()=>{this.u.log(e.Warning,`Error from HTTP request. ${h.status}: ${h.statusText}.`),o(new i(h.statusText,h.status))},h.ontimeout=()=>{this.u.log(e.Warning,"Timeout from HTTP request."),o(new n)},h.send(t.content)})):Promise.reject(new Error("No url defined.")):Promise.reject(new Error("No method defined."))}}class H extends d{constructor(t){if(super(),"undefined"!=typeof fetch||g.isNode)this.$=new T(t);else{if("undefined"==typeof XMLHttpRequest)throw new Error("No usable HttpClient found.");this.$=new _(t)}}send(t){return t.abortSignal&&t.abortSignal.aborted?Promise.reject(new r):t.method?t.url?this.$.send(t):Promise.reject(new Error("No url defined.")):Promise.reject(new Error("No method defined."))}getCookieString(t){return this.$.getCookieString(t)}}class D{static write(t){return`${t}${D.RecordSeparator}`}static parse(t){if(t[t.length-1]!==D.RecordSeparator)throw new Error("Message is incomplete.");const e=t.split(D.RecordSeparator);return e.pop(),e}}D.RecordSeparatorCode=30,D.RecordSeparator=String.fromCharCode(D.RecordSeparatorCode);class R{writeHandshakeRequest(t){return D.write(JSON.stringify(t))}parseHandshakeResponse(t){let e,s;if(y(t)){const i=new Uint8Array(t),n=i.indexOf(D.RecordSeparatorCode);if(-1===n)throw new Error("Message is incomplete.");const r=n+1;e=String.fromCharCode.apply(null,Array.prototype.slice.call(i.slice(0,r))),s=i.byteLength>r?i.slice(r).buffer:null}else{const i=t,n=i.indexOf(D.RecordSeparator);if(-1===n)throw new Error("Message is incomplete.");const r=n+1;e=i.substring(0,r),s=i.length>r?i.substring(r):null}const i=D.parse(e),n=JSON.parse(i[0]);if(n.type)throw new Error("Expected a handshake response from the server.");return[s,n]}}var x,A;!function(t){t[t.Invocation=1]="Invocation",t[t.StreamItem=2]="StreamItem",t[t.Completion=3]="Completion",t[t.StreamInvocation=4]="StreamInvocation",t[t.CancelInvocation=5]="CancelInvocation",t[t.Ping=6]="Ping",t[t.Close=7]="Close",t[t.Ack=8]="Ack",t[t.Sequence=9]="Sequence"}(x||(x={}));class U{constructor(){this.observers=[]}next(t){for(const e of this.observers)e.next(t)}error(t){for(const e of this.observers)e.error&&e.error(t)}complete(){for(const t of this.observers)t.complete&&t.complete()}subscribe(t){return this.observers.push(t),new v(this,t)}}class L{constructor(t,e,s){this.C=1e5,this.S=[],this.k=0,this.P=!1,this.T=1,this.I=0,this._=0,this.H=!1,this.D=t,this.R=e,this.C=s}async A(t){const e=this.D.writeMessage(t);let s=Promise.resolve();if(this.U(t)){this.k++;let t=()=>{},i=()=>{};y(e)?this._+=e.byteLength:this._+=e.length,this._>=this.C&&(s=new Promise(((e,s)=>{t=e,i=s}))),this.S.push(new N(e,this.k,t,i))}try{this.H||await this.R.send(e)}catch{this.L()}await s}N(t){let e=-1;for(let s=0;s<this.S.length;s++){const i=this.S[s];if(i.q<=t.sequenceId)e=s,y(i.M)?this._-=i.M.byteLength:this._-=i.M.length,i.j();else{if(!(this._<this.C))break;i.j()}}-1!==e&&(this.S=this.S.slice(e+1))}W(t){if(this.P)return t.type===x.Sequence&&(this.P=!1,!0);if(!this.U(t))return!0;const e=this.T;return this.T++,e<=this.I?(e===this.I&&this.O(),!1):(this.I=e,this.O(),!0)}F(t){t.sequenceId>this.T?this.R.stop(new Error("Sequence ID greater than amount of messages we've received.")):this.T=t.sequenceId}L(){this.H=!0,this.P=!0}async B(){const t=0!==this.S.length?this.S[0].q:this.k+1;await this.R.send(this.D.writeMessage({type:x.Sequence,sequenceId:t}));const e=this.S;for(const t of e)await this.R.send(t.M);this.H=!1}X(t){null!=t||(t=new Error("Unable to reconnect to server."));for(const e of this.S)e.J(t)}U(t){switch(t.type){case x.Invocation:case x.StreamItem:case x.Completion:case x.StreamInvocation:case x.CancelInvocation:return!0;case x.Close:case x.Sequence:case x.Ping:case x.Ack:return!1}}O(){void 0===this.V&&(this.V=setTimeout((async()=>{try{this.H||await this.R.send(this.D.writeMessage({type:x.Ack,sequenceId:this.I}))}catch{}clearTimeout(this.V),this.V=void 0}),1e3))}}class N{constructor(t,e,s,i){this.M=t,this.q=e,this.j=s,this.J=i}}!function(t){t.Disconnected="Disconnected",t.Connecting="Connecting",t.Connected="Connected",t.Disconnecting="Disconnecting",t.Reconnecting="Reconnecting"}(A||(A={}));class q{static create(t,e,s,i,n,r,o){return new q(t,e,s,i,n,r,o)}constructor(t,s,i,n,r,o,h){this.K=0,this.G=()=>{this.u.log(e.Warning,"The page is being frozen, this will likely lead to the connection being closed and messages being lost. For more information see the docs at https://learn.microsoft.com/aspnet/core/signalr/javascript-client#bsleep")},w.isRequired(t,"connection"),w.isRequired(s,"logger"),w.isRequired(i,"protocol"),this.serverTimeoutInMilliseconds=null!=r?r:3e4,this.keepAliveIntervalInMilliseconds=null!=o?o:15e3,this.Y=null!=h?h:1e5,this.u=s,this.D=i,this.connection=t,this.Z=n,this.tt=new R,this.connection.onreceive=t=>this.et(t),this.connection.onclose=t=>this.st(t),this.it={},this.nt={},this.rt=[],this.ot=[],this.ht=[],this.ct=0,this.lt=!1,this.ut=A.Disconnected,this.dt=!1,this.ft=this.D.writeMessage({type:x.Ping})}get state(){return this.ut}get connectionId(){return this.connection&&this.connection.connectionId||null}get baseUrl(){return this.connection.baseUrl||""}set baseUrl(t){if(this.ut!==A.Disconnected&&this.ut!==A.Reconnecting)throw new Error("The HubConnection must be in the Disconnected or Reconnecting state to change the url.");if(!t)throw new Error("The HubConnection url must be a valid url.");this.connection.baseUrl=t}start(){return this.wt=this.gt(),this.wt}async gt(){if(this.ut!==A.Disconnected)return Promise.reject(new Error("Cannot start a HubConnection that is not in the 'Disconnected' state."));this.ut=A.Connecting,this.u.log(e.Debug,"Starting HubConnection.");try{await this.yt(),g.isBrowser&&window.document.addEventListener("freeze",this.G),this.ut=A.Connected,this.dt=!0,this.u.log(e.Debug,"HubConnection connected successfully.")}catch(t){return this.ut=A.Disconnected,this.u.log(e.Debug,`HubConnection failed to start successfully because of error '${t}'.`),Promise.reject(t)}}async yt(){this.bt=void 0,this.lt=!1;const t=new Promise(((t,e)=>{this.vt=t,this.Et=e}));await this.connection.start(this.D.transferFormat);try{let s=this.D.version;this.connection.features.reconnect||(s=1);const i={protocol:this.D.name,version:s};if(this.u.log(e.Debug,"Sending handshake request."),await this.$t(this.tt.writeHandshakeRequest(i)),this.u.log(e.Information,`Using HubProtocol '${this.D.name}'.`),this.Ct(),this.St(),this.kt(),await t,this.bt)throw this.bt;!!this.connection.features.reconnect&&(this.Pt=new L(this.D,this.connection,this.Y),this.connection.features.disconnected=this.Pt.L.bind(this.Pt),this.connection.features.resend=()=>{if(this.Pt)return this.Pt.B()}),this.connection.features.inherentKeepAlive||await this.$t(this.ft)}catch(t){throw this.u.log(e.Debug,`Hub handshake failed with error '${t}' during start(). Stopping HubConnection.`),this.Ct(),this.Tt(),await this.connection.stop(t),t}}async stop(){const t=this.wt;this.connection.features.reconnect=!1,this.It=this._t(),await this.It;try{await t}catch(t){}}_t(t){if(this.ut===A.Disconnected)return this.u.log(e.Debug,`Call to HubConnection.stop(${t}) ignored because it is already in the disconnected state.`),Promise.resolve();if(this.ut===A.Disconnecting)return this.u.log(e.Debug,`Call to HttpConnection.stop(${t}) ignored because the connection is already in the disconnecting state.`),this.It;const s=this.ut;return this.ut=A.Disconnecting,this.u.log(e.Debug,"Stopping HubConnection."),this.Ht?(this.u.log(e.Debug,"Connection stopped during reconnect delay. Done reconnecting."),clearTimeout(this.Ht),this.Ht=void 0,this.Dt(),Promise.resolve()):(s===A.Connected&&this.Rt(),this.Ct(),this.Tt(),this.bt=t||new r("The connection was stopped before the hub handshake could complete."),this.connection.stop(t))}async Rt(){try{await this.xt(this.At())}catch{}}stream(t,...e){const[s,i]=this.Ut(e),n=this.Lt(t,e,i);let r;const o=new U;return o.cancelCallback=()=>{const t=this.Nt(n.invocationId);return delete this.it[n.invocationId],r.then((()=>this.xt(t)))},this.it[n.invocationId]=(t,e)=>{e?o.error(e):t&&(t.type===x.Completion?t.error?o.error(new Error(t.error)):o.complete():o.next(t.item))},r=this.xt(n).catch((t=>{o.error(t),delete this.it[n.invocationId]})),this.qt(s,r),o}$t(t){return this.kt(),this.connection.send(t)}xt(t){return this.Pt?this.Pt.A(t):this.$t(this.D.writeMessage(t))}send(t,...e){const[s,i]=this.Ut(e),n=this.xt(this.Mt(t,e,!0,i));return this.qt(s,n),n}invoke(t,...e){const[s,i]=this.Ut(e),n=this.Mt(t,e,!1,i);return new Promise(((t,e)=>{this.it[n.invocationId]=(s,i)=>{i?e(i):s&&(s.type===x.Completion?s.error?e(new Error(s.error)):t(s.result):e(new Error(`Unexpected message type: ${s.type}`)))};const i=this.xt(n).catch((t=>{e(t),delete this.it[n.invocationId]}));this.qt(s,i)}))}on(t,e){t&&e&&(t=t.toLowerCase(),this.nt[t]||(this.nt[t]=[]),-1===this.nt[t].indexOf(e)&&this.nt[t].push(e))}off(t,e){if(!t)return;t=t.toLowerCase();const s=this.nt[t];if(s)if(e){const i=s.indexOf(e);-1!==i&&(s.splice(i,1),0===s.length&&delete this.nt[t])}else delete this.nt[t]}onclose(t){t&&this.rt.push(t)}onreconnecting(t){t&&this.ot.push(t)}onreconnected(t){t&&this.ht.push(t)}et(t){if(this.Ct(),this.lt||(t=this.jt(t),this.lt=!0),t){const s=this.D.parseMessages(t,this.u);for(const t of s)if(!this.Pt||this.Pt.W(t))switch(t.type){case x.Invocation:this.Wt(t);break;case x.StreamItem:case x.Completion:{const s=this.it[t.invocationId];if(s){t.type===x.Completion&&delete this.it[t.invocationId];try{s(t)}catch(t){this.u.log(e.Error,`Stream callback threw error: ${P(t)}`)}}break}case x.Ping:break;case x.Close:{this.u.log(e.Information,"Close message received from server.");const s=t.error?new Error("Server returned an error on close: "+t.error):void 0;!0===t.allowReconnect?this.connection.stop(s):this.It=this._t(s);break}case x.Ack:this.Pt&&this.Pt.N(t);break;case x.Sequence:this.Pt&&this.Pt.F(t);break;default:this.u.log(e.Warning,`Invalid message type: ${t.type}.`)}}this.St()}jt(t){let s,i;try{[i,s]=this.tt.parseHandshakeResponse(t)}catch(t){const s="Error parsing handshake response: "+t;this.u.log(e.Error,s);const i=new Error(s);throw this.Et(i),i}if(s.error){const t="Server returned handshake error: "+s.error;this.u.log(e.Error,t);const i=new Error(t);throw this.Et(i),i}return this.u.log(e.Debug,"Server handshake complete."),this.vt(),i}kt(){this.connection.features.inherentKeepAlive||(this.K=(new Date).getTime()+this.keepAliveIntervalInMilliseconds,this.Tt())}St(){if(!(this.connection.features&&this.connection.features.inherentKeepAlive||(this.Ot=setTimeout((()=>this.serverTimeout()),this.serverTimeoutInMilliseconds),void 0!==this.Ft))){let t=this.K-(new Date).getTime();t<0&&(t=0),this.Ft=setTimeout((async()=>{if(this.ut===A.Connected)try{await this.$t(this.ft)}catch{this.Tt()}}),t)}}serverTimeout(){this.connection.stop(new Error("Server timeout elapsed without receiving a message from the server."))}async Wt(t){const s=t.target.toLowerCase(),i=this.nt[s];if(!i)return this.u.log(e.Warning,`No client method with the name '${s}' found.`),void(t.invocationId&&(this.u.log(e.Warning,`No result given for '${s}' method and invocation ID '${t.invocationId}'.`),await this.xt(this.Bt(t.invocationId,"Client didn't provide a result.",null))));const n=i.slice(),r=!!t.invocationId;let o,h,c;for(const i of n)try{const n=o;o=await i.apply(this,t.arguments),r&&o&&n&&(this.u.log(e.Error,`Multiple results provided for '${s}'. Sending error to server.`),c=this.Bt(t.invocationId,"Client provided multiple results.",null)),h=void 0}catch(t){h=t,this.u.log(e.Error,`A callback for the method '${s}' threw error '${t}'.`)}c?await this.xt(c):r?(h?c=this.Bt(t.invocationId,`${h}`,null):void 0!==o?c=this.Bt(t.invocationId,null,o):(this.u.log(e.Warning,`No result given for '${s}' method and invocation ID '${t.invocationId}'.`),c=this.Bt(t.invocationId,"Client didn't provide a result.",null)),await this.xt(c)):o&&this.u.log(e.Error,`Result given for '${s}' method but server is not expecting a result.`)}st(t){this.u.log(e.Debug,`HubConnection.connectionClosed(${t}) called while in state ${this.ut}.`),this.bt=this.bt||t||new r("The underlying connection was closed before the hub handshake could complete."),this.vt&&this.vt(),this.Xt(t||new Error("Invocation canceled due to the underlying connection being closed.")),this.Ct(),this.Tt(),this.ut===A.Disconnecting?this.Dt(t):this.ut===A.Connected&&this.Z?this.Jt(t):this.ut===A.Connected&&this.Dt(t)}Dt(t){if(this.dt){this.ut=A.Disconnected,this.dt=!1,this.Pt&&(this.Pt.X(null!=t?t:new Error("Connection closed.")),this.Pt=void 0),g.isBrowser&&window.document.removeEventListener("freeze",this.G);try{this.rt.forEach((e=>e.apply(this,[t])))}catch(s){this.u.log(e.Error,`An onclose callback called with error '${t}' threw error '${s}'.`)}}}async Jt(t){const s=Date.now();let i=0,n=void 0!==t?t:new Error("Attempting to reconnect due to a unknown error."),r=this.zt(i++,0,n);if(null===r)return this.u.log(e.Debug,"Connection not reconnecting because the IRetryPolicy returned null on the first reconnect attempt."),void this.Dt(t);if(this.ut=A.Reconnecting,t?this.u.log(e.Information,`Connection reconnecting because of error '${t}'.`):this.u.log(e.Information,"Connection reconnecting."),0!==this.ot.length){try{this.ot.forEach((e=>e.apply(this,[t])))}catch(s){this.u.log(e.Error,`An onreconnecting callback called with error '${t}' threw error '${s}'.`)}if(this.ut!==A.Reconnecting)return void this.u.log(e.Debug,"Connection left the reconnecting state in onreconnecting callback. Done reconnecting.")}for(;null!==r;){if(this.u.log(e.Information,`Reconnect attempt number ${i} will start in ${r} ms.`),await new Promise((t=>{this.Ht=setTimeout(t,r)})),this.Ht=void 0,this.ut!==A.Reconnecting)return void this.u.log(e.Debug,"Connection left the reconnecting state during reconnect delay. Done reconnecting.");try{if(await this.yt(),this.ut=A.Connected,this.u.log(e.Information,"HubConnection reconnected successfully."),0!==this.ht.length)try{this.ht.forEach((t=>t.apply(this,[this.connection.connectionId])))}catch(t){this.u.log(e.Error,`An onreconnected callback called with connectionId '${this.connection.connectionId}; threw error '${t}'.`)}return}catch(t){if(this.u.log(e.Information,`Reconnect attempt failed because of error '${t}'.`),this.ut!==A.Reconnecting)return this.u.log(e.Debug,`Connection moved to the '${this.ut}' from the reconnecting state during reconnect attempt. Done reconnecting.`),void(this.ut===A.Disconnecting&&this.Dt());n=t instanceof Error?t:new Error(t.toString()),r=this.zt(i++,Date.now()-s,n)}}this.u.log(e.Information,`Reconnect retries have been exhausted after ${Date.now()-s} ms and ${i} failed attempts. Connection disconnecting.`),this.Dt()}zt(t,s,i){try{return this.Z.nextRetryDelayInMilliseconds({elapsedMilliseconds:s,previousRetryCount:t,retryReason:i})}catch(i){return this.u.log(e.Error,`IRetryPolicy.nextRetryDelayInMilliseconds(${t}, ${s}) threw error '${i}'.`),null}}Xt(t){const s=this.it;this.it={},Object.keys(s).forEach((i=>{const n=s[i];try{n(null,t)}catch(s){this.u.log(e.Error,`Stream 'error' callback called with '${t}' threw error: ${P(s)}`)}}))}Tt(){this.Ft&&(clearTimeout(this.Ft),this.Ft=void 0)}Ct(){this.Ot&&clearTimeout(this.Ot)}Mt(t,e,s,i){if(s)return 0!==i.length?{arguments:e,streamIds:i,target:t,type:x.Invocation}:{arguments:e,target:t,type:x.Invocation};{const s=this.ct;return this.ct++,0!==i.length?{arguments:e,invocationId:s.toString(),streamIds:i,target:t,type:x.Invocation}:{arguments:e,invocationId:s.toString(),target:t,type:x.Invocation}}}qt(t,e){if(0!==t.length){e||(e=Promise.resolve());for(const s in t)t[s].subscribe({complete:()=>{e=e.then((()=>this.xt(this.Bt(s))))},error:t=>{let i;i=t instanceof Error?t.message:t&&t.toString?t.toString():"Unknown error",e=e.then((()=>this.xt(this.Bt(s,i))))},next:t=>{e=e.then((()=>this.xt(this.Vt(s,t))))}})}}Ut(t){const e=[],s=[];for(let i=0;i<t.length;i++){const n=t[i];if(this.Kt(n)){const r=this.ct;this.ct++,e[r]=n,s.push(r.toString()),t.splice(i,1)}}return[e,s]}Kt(t){return t&&t.subscribe&&"function"==typeof t.subscribe}Lt(t,e,s){const i=this.ct;return this.ct++,0!==s.length?{arguments:e,invocationId:i.toString(),streamIds:s,target:t,type:x.StreamInvocation}:{arguments:e,invocationId:i.toString(),target:t,type:x.StreamInvocation}}Nt(t){return{invocationId:t,type:x.CancelInvocation}}Vt(t,e){return{invocationId:t,item:e,type:x.StreamItem}}Bt(t,e,s){return e?{error:e,invocationId:t,type:x.Completion}:{invocationId:t,result:s,type:x.Completion}}At(){return{type:x.Close}}}const M=[0,2e3,1e4,3e4,null];class j{constructor(t){this.Gt=void 0!==t?[...t,null]:M}nextRetryDelayInMilliseconds(t){return this.Gt[t.previousRetryCount]}}class W{}W.Authorization="Authorization",W.Cookie="Cookie";class O extends d{constructor(t,e){super(),this.Qt=t,this.Yt=e}async send(t){let e=!0;this.Yt&&(!this.Zt||t.url&&t.url.indexOf("/negotiate?")>0)&&(e=!1,this.Zt=await this.Yt()),this.te(t);const s=await this.Qt.send(t);return e&&401===s.statusCode&&this.Yt?(this.Zt=await this.Yt(),this.te(t),await this.Qt.send(t)):s}te(t){t.headers||(t.headers={}),this.Zt?t.headers[W.Authorization]=`Bearer ${this.Zt}`:this.Yt&&t.headers[W.Authorization]&&delete t.headers[W.Authorization]}getCookieString(t){return this.Qt.getCookieString(t)}}var F,B;!function(t){t[t.None=0]="None",t[t.WebSockets=1]="WebSockets",t[t.ServerSentEvents=2]="ServerSentEvents",t[t.LongPolling=4]="LongPolling"}(F||(F={})),function(t){t[t.Text=1]="Text",t[t.Binary=2]="Binary"}(B||(B={}));class X{constructor(){this.ee=!1,this.onabort=null}abort(){this.ee||(this.ee=!0,this.onabort&&this.onabort())}get signal(){return this}get aborted(){return this.ee}}class J{get pollAborted(){return this.se.aborted}constructor(t,e,s){this.$=t,this.u=e,this.se=new X,this.ie=s,this.ne=!1,this.onreceive=null,this.onclose=null}async connect(t,s){if(w.isRequired(t,"url"),w.isRequired(s,"transferFormat"),w.isIn(s,B,"transferFormat"),this.re=t,this.u.log(e.Trace,"(LongPolling transport) Connecting."),s===B.Binary&&"undefined"!=typeof XMLHttpRequest&&"string"!=typeof(new XMLHttpRequest).responseType)throw new Error("Binary protocols over XmlHttpRequest not implementing advanced features are not supported.");const[n,r]=$(),o={[n]:r,...this.ie.headers},h={abortSignal:this.se.signal,headers:o,timeout:1e5,withCredentials:this.ie.withCredentials};s===B.Binary&&(h.responseType="arraybuffer");const c=`${t}&_=${Date.now()}`;this.u.log(e.Trace,`(LongPolling transport) polling: ${c}.`);const a=await this.$.get(c,h);200!==a.statusCode?(this.u.log(e.Error,`(LongPolling transport) Unexpected response code: ${a.statusCode}.`),this.oe=new i(a.statusText||"",a.statusCode),this.ne=!1):this.ne=!0,this.he=this.ce(this.re,h)}async ce(t,s){try{for(;this.ne;)try{const n=`${t}&_=${Date.now()}`;this.u.log(e.Trace,`(LongPolling transport) polling: ${n}.`);const r=await this.$.get(n,s);204===r.statusCode?(this.u.log(e.Information,"(LongPolling transport) Poll terminated by server."),this.ne=!1):200!==r.statusCode?(this.u.log(e.Error,`(LongPolling transport) Unexpected response code: ${r.statusCode}.`),this.oe=new i(r.statusText||"",r.statusCode),this.ne=!1):r.content?(this.u.log(e.Trace,`(LongPolling transport) data received. ${m(r.content,this.ie.logMessageContent)}.`),this.onreceive&&this.onreceive(r.content)):this.u.log(e.Trace,"(LongPolling transport) Poll timed out, reissuing.")}catch(t){this.ne?t instanceof n?this.u.log(e.Trace,"(LongPolling transport) Poll timed out, reissuing."):(this.oe=t,this.ne=!1):this.u.log(e.Trace,`(LongPolling transport) Poll errored after shutdown: ${t.message}`)}}finally{this.u.log(e.Trace,"(LongPolling transport) Polling complete."),this.pollAborted||this.ae()}}async send(t){return this.ne?b(this.u,"LongPolling",this.$,this.re,t,this.ie):Promise.reject(new Error("Cannot send until the transport is connected"))}async stop(){this.u.log(e.Trace,"(LongPolling transport) Stopping polling."),this.ne=!1,this.se.abort();try{await this.he,this.u.log(e.Trace,`(LongPolling transport) sending DELETE request to ${this.re}.`);const t={},[s,n]=$();t[s]=n;const r={headers:{...t,...this.ie.headers},timeout:this.ie.timeout,withCredentials:this.ie.withCredentials};let o;try{await this.$.delete(this.re,r)}catch(t){o=t}o?o instanceof i&&(404===o.statusCode?this.u.log(e.Trace,"(LongPolling transport) A 404 response was returned from sending a DELETE request."):this.u.log(e.Trace,`(LongPolling transport) Error sending a DELETE request: ${o}`)):this.u.log(e.Trace,"(LongPolling transport) DELETE request accepted.")}finally{this.u.log(e.Trace,"(LongPolling transport) Stop finished."),this.ae()}}ae(){if(this.onclose){let t="(LongPolling transport) Firing onclose event.";this.oe&&(t+=" Error: "+this.oe),this.u.log(e.Trace,t),this.onclose(this.oe)}}}class z{constructor(t,e,s,i){this.$=t,this.Zt=e,this.u=s,this.ie=i,this.onreceive=null,this.onclose=null}async connect(t,s){return w.isRequired(t,"url"),w.isRequired(s,"transferFormat"),w.isIn(s,B,"transferFormat"),this.u.log(e.Trace,"(SSE transport) Connecting."),this.re=t,this.Zt&&(t+=(t.indexOf("?")<0?"?":"&")+`access_token=${encodeURIComponent(this.Zt)}`),new Promise(((i,n)=>{let r,o=!1;if(s===B.Text){if(g.isBrowser||g.isWebWorker)r=new this.ie.EventSource(t,{withCredentials:this.ie.withCredentials});else{const e=this.$.getCookieString(t),s={};s.Cookie=e;const[i,n]=$();s[i]=n,r=new this.ie.EventSource(t,{withCredentials:this.ie.withCredentials,headers:{...s,...this.ie.headers}})}try{r.onmessage=t=>{if(this.onreceive)try{this.u.log(e.Trace,`(SSE transport) data received. ${m(t.data,this.ie.logMessageContent)}.`),this.onreceive(t.data)}catch(t){return void this.le(t)}},r.onerror=t=>{o?this.le():n(new Error("EventSource failed to connect. The connection could not be found on the server, either the connection ID is not present on the server, or a proxy is refusing/buffering the connection. If you have multiple servers check that sticky sessions are enabled."))},r.onopen=()=>{this.u.log(e.Information,`SSE connected to ${this.re}`),this.ue=r,o=!0,i()}}catch(t){return void n(t)}}else n(new Error("The Server-Sent Events transport only supports the 'Text' transfer format"))}))}async send(t){return this.ue?b(this.u,"SSE",this.$,this.re,t,this.ie):Promise.reject(new Error("Cannot send until the transport is connected"))}stop(){return this.le(),Promise.resolve()}le(t){this.ue&&(this.ue.close(),this.ue=void 0,this.onclose&&this.onclose(t))}}class V{constructor(t,e,s,i,n,r){this.u=s,this.Yt=e,this.de=i,this.fe=n,this.$=t,this.onreceive=null,this.onclose=null,this.pe=r}async connect(t,s){let i;return w.isRequired(t,"url"),w.isRequired(s,"transferFormat"),w.isIn(s,B,"transferFormat"),this.u.log(e.Trace,"(WebSockets transport) Connecting."),this.Yt&&(i=await this.Yt()),new Promise(((n,r)=>{let o;t=t.replace(/^http/,"ws");const h=this.$.getCookieString(t);let c=!1;if(g.isNode||g.isReactNative){const e={},[s,n]=$();e[s]=n,i&&(e[W.Authorization]=`Bearer ${i}`),h&&(e[W.Cookie]=h),o=new this.fe(t,void 0,{headers:{...e,...this.pe}})}else i&&(t+=(t.indexOf("?")<0?"?":"&")+`access_token=${encodeURIComponent(i)}`);o||(o=new this.fe(t)),s===B.Binary&&(o.binaryType="arraybuffer"),o.onopen=s=>{this.u.log(e.Information,`WebSocket connected to ${t}.`),this.we=o,c=!0,n()},o.onerror=t=>{let s=null;s="undefined"!=typeof ErrorEvent&&t instanceof ErrorEvent?t.error:"There was an error with the transport",this.u.log(e.Information,`(WebSockets transport) ${s}.`)},o.onmessage=t=>{if(this.u.log(e.Trace,`(WebSockets transport) data received. ${m(t.data,this.de)}.`),this.onreceive)try{this.onreceive(t.data)}catch(t){return void this.le(t)}},o.onclose=t=>{if(c)this.le(t);else{let e=null;e="undefined"!=typeof ErrorEvent&&t instanceof ErrorEvent?t.error:"WebSocket failed to connect. The connection could not be found on the server, either the endpoint may not be a SignalR endpoint, the connection ID is not present on the server, or there is a proxy blocking WebSockets. If you have multiple servers check that sticky sessions are enabled.",r(new Error(e))}}}))}send(t){return this.we&&this.we.readyState===this.fe.OPEN?(this.u.log(e.Trace,`(WebSockets transport) sending data. ${m(t,this.de)}.`),this.we.send(t),Promise.resolve()):Promise.reject("WebSocket is not in the OPEN state")}stop(){return this.we&&this.le(void 0),Promise.resolve()}le(t){this.we&&(this.we.onclose=()=>{},this.we.onmessage=()=>{},this.we.onerror=()=>{},this.we.close(),this.we=void 0),this.u.log(e.Trace,"(WebSockets transport) socket closed."),this.onclose&&(!this.ge(t)||!1!==t.wasClean&&1e3===t.code?t instanceof Error?this.onclose(t):this.onclose():this.onclose(new Error(`WebSocket closed with status code: ${t.code} (${t.reason||"no reason given"}).`)))}ge(t){return t&&"boolean"==typeof t.wasClean&&"number"==typeof t.code}}class K{constructor(t,s={}){var i;if(this.me=()=>{},this.features={},this.ye=1,w.isRequired(t,"url"),this.u=void 0===(i=s.logger)?new E(e.Information):null===i?f.instance:void 0!==i.log?i:new E(i),this.baseUrl=this.be(t),(s=s||{}).logMessageContent=void 0!==s.logMessageContent&&s.logMessageContent,"boolean"!=typeof s.withCredentials&&void 0!==s.withCredentials)throw new Error("withCredentials option was not a 'boolean' or 'undefined' value");s.withCredentials=void 0===s.withCredentials||s.withCredentials,s.timeout=void 0===s.timeout?1e5:s.timeout;let n=null,r=null;g.isNode&&(n=function(){throw new Error("Trying to import 'ws' in the browser.")}(),r=function(){throw new Error("Trying to import 'eventsource' in the browser.")}()),g.isNode||"undefined"==typeof WebSocket||s.WebSocket?g.isNode&&!s.WebSocket&&n&&(s.WebSocket=n):s.WebSocket=WebSocket,g.isNode||"undefined"==typeof EventSource||s.EventSource?g.isNode&&!s.EventSource&&void 0!==r&&(s.EventSource=r):s.EventSource=EventSource,this.$=new O(s.httpClient||new H(this.u),s.accessTokenFactory),this.ut="Disconnected",this.dt=!1,this.ie=s,this.onreceive=null,this.onclose=null}async start(t){if(t=t||B.Binary,w.isIn(t,B,"transferFormat"),this.u.log(e.Debug,`Starting connection with transfer format '${B[t]}'.`),"Disconnected"!==this.ut)return Promise.reject(new Error("Cannot start an HttpConnection that is not in the 'Disconnected' state."));if(this.ut="Connecting",this.ve=this.yt(t),await this.ve,"Disconnecting"===this.ut){const t="Failed to start the HttpConnection before stop() was called.";return this.u.log(e.Error,t),await this.It,Promise.reject(new r(t))}if("Connected"!==this.ut){const t="HttpConnection.startInternal completed gracefully but didn't enter the connection into the connected state!";return this.u.log(e.Error,t),Promise.reject(new r(t))}this.dt=!0}send(t){return"Connected"!==this.ut?Promise.reject(new Error("Cannot send data if the connection is not in the 'Connected' State.")):(this.Ee||(this.Ee=new G(this.transport)),this.Ee.send(t))}async stop(t){return"Disconnected"===this.ut?(this.u.log(e.Debug,`Call to HttpConnection.stop(${t}) ignored because the connection is already in the disconnected state.`),Promise.resolve()):"Disconnecting"===this.ut?(this.u.log(e.Debug,`Call to HttpConnection.stop(${t}) ignored because the connection is already in the disconnecting state.`),this.It):(this.ut="Disconnecting",this.It=new Promise((t=>{this.me=t})),await this._t(t),void await this.It)}async _t(t){this.$e=t;try{await this.ve}catch(t){}if(this.transport){try{await this.transport.stop()}catch(t){this.u.log(e.Error,`HttpConnection.transport.stop() threw error '${t}'.`),this.Ce()}this.transport=void 0}else this.u.log(e.Debug,"HttpConnection.transport is undefined in HttpConnection.stop() because start() failed.")}async yt(t){let s=this.baseUrl;this.Yt=this.ie.accessTokenFactory,this.$.Yt=this.Yt;try{if(this.ie.skipNegotiation){if(this.ie.transport!==F.WebSockets)throw new Error("Negotiation can only be skipped when using the WebSocket transport directly.");this.transport=this.Se(F.WebSockets),await this.ke(s,t)}else{let e=null,i=0;do{if(e=await this.Pe(s),"Disconnecting"===this.ut||"Disconnected"===this.ut)throw new r("The connection was stopped during negotiation.");if(e.error)throw new Error(e.error);if(e.ProtocolVersion)throw new Error("Detected a connection attempt to an ASP.NET SignalR Server. This client only supports connecting to an ASP.NET Core SignalR Server. See https://aka.ms/signalr-core-differences for details.");if(e.url&&(s=e.url),e.accessToken){const t=e.accessToken;this.Yt=()=>t,this.$.Zt=t,this.$.Yt=void 0}i++}while(e.url&&i<100);if(100===i&&e.url)throw new Error("Negotiate redirection limit exceeded.");await this.Te(s,this.ie.transport,e,t)}this.transport instanceof J&&(this.features.inherentKeepAlive=!0),"Connecting"===this.ut&&(this.u.log(e.Debug,"The HttpConnection connected successfully."),this.ut="Connected")}catch(t){return this.u.log(e.Error,"Failed to start the connection: "+t),this.ut="Disconnected",this.transport=void 0,this.me(),Promise.reject(t)}}async Pe(t){const s={},[n,r]=$();s[n]=r;const o=this.Ie(t);this.u.log(e.Debug,`Sending negotiation request: ${o}.`);try{const t=await this.$.post(o,{content:"",headers:{...s,...this.ie.headers},timeout:this.ie.timeout,withCredentials:this.ie.withCredentials});if(200!==t.statusCode)return Promise.reject(new Error(`Unexpected status code returned from negotiate '${t.statusCode}'`));const e=JSON.parse(t.content);return(!e.negotiateVersion||e.negotiateVersion<1)&&(e.connectionToken=e.connectionId),e.useStatefulReconnect&&!0!==this.ie._e?Promise.reject(new a("Client didn't negotiate Stateful Reconnect but the server did.")):e}catch(t){let s="Failed to complete negotiation with the server: "+t;return t instanceof i&&404===t.statusCode&&(s+=" Either this is not a SignalR endpoint or there is a proxy blocking the connection."),this.u.log(e.Error,s),Promise.reject(new a(s))}}He(t,e){return e?t+(-1===t.indexOf("?")?"?":"&")+`id=${e}`:t}async Te(t,s,i,n){let o=this.He(t,i.connectionToken);if(this.De(s))return this.u.log(e.Debug,"Connection was provided an instance of ITransport, using that directly."),this.transport=s,await this.ke(o,n),void(this.connectionId=i.connectionId);const h=[],a=i.availableTransports||[];let u=i;for(const i of a){const a=this.Re(i,s,n,!0===(null==u?void 0:u.useStatefulReconnect));if(a instanceof Error)h.push(`${i.transport} failed:`),h.push(a);else if(this.De(a)){if(this.transport=a,!u){try{u=await this.Pe(t)}catch(t){return Promise.reject(t)}o=this.He(t,u.connectionToken)}try{return await this.ke(o,n),void(this.connectionId=u.connectionId)}catch(t){if(this.u.log(e.Error,`Failed to start the transport '${i.transport}': ${t}`),u=void 0,h.push(new c(`${i.transport} failed: ${t}`,F[i.transport])),"Connecting"!==this.ut){const t="Failed to select transport before stop() was called.";return this.u.log(e.Debug,t),Promise.reject(new r(t))}}}}return h.length>0?Promise.reject(new l(`Unable to connect to the server with any of the available transports. ${h.join(" ")}`,h)):Promise.reject(new Error("None of the transports supported by the client are supported by the server."))}Se(t){switch(t){case F.WebSockets:if(!this.ie.WebSocket)throw new Error("'WebSocket' is not supported in your environment.");return new V(this.$,this.Yt,this.u,this.ie.logMessageContent,this.ie.WebSocket,this.ie.headers||{});case F.ServerSentEvents:if(!this.ie.EventSource)throw new Error("'EventSource' is not supported in your environment.");return new z(this.$,this.$.Zt,this.u,this.ie);case F.LongPolling:return new J(this.$,this.u,this.ie);default:throw new Error(`Unknown transport: ${t}.`)}}ke(t,e){return this.transport.onreceive=this.onreceive,this.features.reconnect?this.transport.onclose=async s=>{let i=!1;if(this.features.reconnect){try{this.features.disconnected(),await this.transport.connect(t,e),await this.features.resend()}catch{i=!0}i&&this.Ce(s)}else this.Ce(s)}:this.transport.onclose=t=>this.Ce(t),this.transport.connect(t,e)}Re(t,s,i,n){const r=F[t.transport];if(null==r)return this.u.log(e.Debug,`Skipping transport '${t.transport}' because it is not supported by this client.`),new Error(`Skipping transport '${t.transport}' because it is not supported by this client.`);if(!function(t,e){return!t||0!=(e&t)}(s,r))return this.u.log(e.Debug,`Skipping transport '${F[r]}' because it was disabled by the client.`),new h(`'${F[r]}' is disabled by the client.`,r);if(!(t.transferFormats.map((t=>B[t])).indexOf(i)>=0))return this.u.log(e.Debug,`Skipping transport '${F[r]}' because it does not support the requested transfer format '${B[i]}'.`),new Error(`'${F[r]}' does not support ${B[i]}.`);if(r===F.WebSockets&&!this.ie.WebSocket||r===F.ServerSentEvents&&!this.ie.EventSource)return this.u.log(e.Debug,`Skipping transport '${F[r]}' because it is not supported in your environment.'`),new o(`'${F[r]}' is not supported in your environment.`,r);this.u.log(e.Debug,`Selecting transport '${F[r]}'.`);try{return this.features.reconnect=r===F.WebSockets?n:void 0,this.Se(r)}catch(t){return t}}De(t){return t&&"object"==typeof t&&"connect"in t}Ce(t){if(this.u.log(e.Debug,`HttpConnection.stopConnection(${t}) called while in state ${this.ut}.`),this.transport=void 0,t=this.$e||t,this.$e=void 0,"Disconnected"!==this.ut){if("Connecting"===this.ut)throw this.u.log(e.Warning,`Call to HttpConnection.stopConnection(${t}) was ignored because the connection is still in the connecting state.`),new Error(`HttpConnection.stopConnection(${t}) was called while the connection is still in the connecting state.`);if("Disconnecting"===this.ut&&this.me(),t?this.u.log(e.Error,`Connection disconnected with error '${t}'.`):this.u.log(e.Information,"Connection disconnected."),this.Ee&&(this.Ee.stop().catch((t=>{this.u.log(e.Error,`TransportSendQueue.stop() threw error '${t}'.`)})),this.Ee=void 0),this.connectionId=void 0,this.ut="Disconnected",this.dt){this.dt=!1;try{this.onclose&&this.onclose(t)}catch(s){this.u.log(e.Error,`HttpConnection.onclose(${t}) threw error '${s}'.`)}}}else this.u.log(e.Debug,`Call to HttpConnection.stopConnection(${t}) was ignored because the connection is already in the disconnected state.`)}be(t){if(0===t.lastIndexOf("https://",0)||0===t.lastIndexOf("http://",0))return t;if(!g.isBrowser)throw new Error(`Cannot resolve '${t}'.`);const s=window.document.createElement("a");return s.href=t,this.u.log(e.Information,`Normalizing '${t}' to '${s.href}'.`),s.href}Ie(t){const e=new URL(t);e.pathname.endsWith("/")?e.pathname+="negotiate":e.pathname+="/negotiate";const s=new URLSearchParams(e.searchParams);return s.has("negotiateVersion")||s.append("negotiateVersion",this.ye.toString()),s.has("useStatefulReconnect")?"true"===s.get("useStatefulReconnect")&&(this.ie._e=!0):!0===this.ie._e&&s.append("useStatefulReconnect","true"),e.search=s.toString(),e.toString()}}class G{constructor(t){this.xe=t,this.Ae=[],this.Ue=!0,this.Le=new Q,this.Ne=new Q,this.qe=this.Me()}send(t){return this.je(t),this.Ne||(this.Ne=new Q),this.Ne.promise}stop(){return this.Ue=!1,this.Le.resolve(),this.qe}je(t){if(this.Ae.length&&typeof this.Ae[0]!=typeof t)throw new Error(`Expected data to be of type ${typeof this.Ae} but was of type ${typeof t}`);this.Ae.push(t),this.Le.resolve()}async Me(){for(;;){if(await this.Le.promise,!this.Ue){this.Ne&&this.Ne.reject("Connection stopped.");break}this.Le=new Q;const t=this.Ne;this.Ne=void 0;const e="string"==typeof this.Ae[0]?this.Ae.join(""):G.We(this.Ae);this.Ae.length=0;try{await this.xe.send(e),t.resolve()}catch(e){t.reject(e)}}}static We(t){const e=t.map((t=>t.byteLength)).reduce(((t,e)=>t+e)),s=new Uint8Array(e);let i=0;for(const e of t)s.set(new Uint8Array(e),i),i+=e.byteLength;return s.buffer}}class Q{constructor(){this.promise=new Promise(((t,e)=>[this.j,this.Oe]=[t,e]))}resolve(){this.j()}reject(t){this.Oe(t)}}class Y{constructor(){this.name="json",this.version=2,this.transferFormat=B.Text}parseMessages(t,s){if("string"!=typeof t)throw new Error("Invalid input for JSON hub protocol. Expected a string.");if(!t)return[];null===s&&(s=f.instance);const i=D.parse(t),n=[];for(const t of i){const i=JSON.parse(t);if("number"!=typeof i.type)throw new Error("Invalid payload.");switch(i.type){case x.Invocation:this.U(i);break;case x.StreamItem:this.Fe(i);break;case x.Completion:this.Be(i);break;case x.Ping:case x.Close:break;case x.Ack:this.Xe(i);break;case x.Sequence:this.Je(i);break;default:s.log(e.Information,"Unknown message type '"+i.type+"' ignored.");continue}n.push(i)}return n}writeMessage(t){return D.write(JSON.stringify(t))}U(t){this.ze(t.target,"Invalid payload for Invocation message."),void 0!==t.invocationId&&this.ze(t.invocationId,"Invalid payload for Invocation message.")}Fe(t){if(this.ze(t.invocationId,"Invalid payload for StreamItem message."),void 0===t.item)throw new Error("Invalid payload for StreamItem message.")}Be(t){if(t.result&&t.error)throw new Error("Invalid payload for Completion message.");!t.result&&t.error&&this.ze(t.error,"Invalid payload for Completion message."),this.ze(t.invocationId,"Invalid payload for Completion message.")}Xe(t){if("number"!=typeof t.sequenceId)throw new Error("Invalid SequenceId for Ack message.")}Je(t){if("number"!=typeof t.sequenceId)throw new Error("Invalid SequenceId for Sequence message.")}ze(t,e){if("string"!=typeof t||""===t)throw new Error(e)}}const Z={trace:e.Trace,debug:e.Debug,info:e.Information,information:e.Information,warn:e.Warning,warning:e.Warning,error:e.Error,critical:e.Critical,none:e.None};class tt{configureLogging(t){if(w.isRequired(t,"logging"),void 0!==t.log)this.logger=t;else if("string"==typeof t){const e=function(t){const e=Z[t.toLowerCase()];if(void 0!==e)return e;throw new Error(`Unknown log level: ${t}`)}(t);this.logger=new E(e)}else this.logger=new E(t);return this}withUrl(t,e){return w.isRequired(t,"url"),w.isNotEmpty(t,"url"),this.url=t,this.httpConnectionOptions="object"==typeof e?{...this.httpConnectionOptions,...e}:{...this.httpConnectionOptions,transport:e},this}withHubProtocol(t){return w.isRequired(t,"protocol"),this.protocol=t,this}withAutomaticReconnect(t){if(this.reconnectPolicy)throw new Error("A reconnectPolicy has already been set.");return t?Array.isArray(t)?this.reconnectPolicy=new j(t):this.reconnectPolicy=t:this.reconnectPolicy=new j,this}withServerTimeout(t){return w.isRequired(t,"milliseconds"),this.Ve=t,this}withKeepAliveInterval(t){return w.isRequired(t,"milliseconds"),this.Ke=t,this}withStatefulReconnect(t){return void 0===this.httpConnectionOptions&&(this.httpConnectionOptions={}),this.httpConnectionOptions._e=!0,this.Y=null==t?void 0:t.bufferSize,this}build(){const t=this.httpConnectionOptions||{};if(void 0===t.logger&&(t.logger=this.logger),!this.url)throw new Error("The 'HubConnectionBuilder.withUrl' method must be called before building the connection.");const e=new K(this.url,t);return q.create(e,this.logger||f.instance,this.protocol||new Y,this.reconnectPolicy,this.Ve,this.Ke,this.Y)}}return Uint8Array.prototype.indexOf||Object.defineProperty(Uint8Array.prototype,"indexOf",{value:Array.prototype.indexOf,writable:!0}),Uint8Array.prototype.slice||Object.defineProperty(Uint8Array.prototype,"slice",{value:function(t,e){return new Uint8Array(Array.prototype.slice.call(this,t,e))},writable:!0}),Uint8Array.prototype.forEach||Object.defineProperty(Uint8Array.prototype,"forEach",{value:Array.prototype.forEach,writable:!0}),s})(),"object"==typeof exports&&"object"==typeof module?module.exports=e():"function"==typeof define&&define.amd?define([],e):"object"==typeof exports?exports.signalR=e():t.signalR=e();
+//# sourceMappingURL=signalr.min.js.map
+</script>
+<style>
+  :root{
+    --paper:#F6F2E7; --paper-2:#EFEADA;
+    --ink:#26301F; --ink-soft:#5B6350;
+    --rule:#C9CBB5; --rule-strong:#9FA98B;
+    --ogre:#8FBB80; --ogre-deep:#4F7A45;
+    --fiona:#EFAEBC; --fiona-deep:#B15C71;
+    --donkey:#E7C67C; --donkey-deep:#9C7A28;
+    --puss:#8FC4C9; --puss-deep:#2F6F74;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{ background:var(--paper); color:var(--ink); font-family:'Source Serif 4', Georgia, serif; min-height:100vh; }
+  ::selection{background:var(--ogre); color:var(--ink);}
+
+  .masthead{ max-width:1040px; margin:0 auto; padding:26px 20px 14px; text-align:center; border-bottom:3px double var(--ink); }
+  .masthead .kicker{ font-family:'Inter',sans-serif; letter-spacing:.18em; text-transform:uppercase; font-size:11px; color:var(--ink-soft); margin-bottom:6px; }
+  .masthead h1{ font-family:'Playfair Display', serif; font-weight:900; font-style:italic; font-size:clamp(34px,6vw,58px); margin:0; letter-spacing:-.01em; }
+  .masthead .dateline{ font-family:'Inter',sans-serif; font-size:11px; color:var(--ink-soft); display:flex; justify-content:space-between; flex-wrap:wrap; gap:6px 14px; margin-top:10px; padding-top:8px; border-top:1px solid var(--rule); }
+
+  .wrap{max-width:1040px; margin:0 auto; padding:28px 20px 60px;}
+
+  @media (max-width:520px){
+    .masthead{padding:18px 12px 10px;}
+    .wrap{padding:16px 12px 48px;}
+    .article{padding:20px 16px 18px;}
+    h2.headline{font-size:21px;}
+    .win-card{padding:28px 22px;}
+    button{padding:12px 16px; width:100%;}
+    .row{gap:12px;}
+  }
+
+  .article{ background:var(--paper); border:1px solid var(--rule-strong); padding:26px 26px 22px; margin-bottom:22px; position:relative; }
+  .article::before{ content:attr(data-fig); position:absolute; top:-11px; left:20px; background:var(--paper); padding:0 8px; font-family:'Inter',sans-serif; font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--ink-soft); }
+  h2.headline{ font-family:'Playfair Display',serif; font-weight:700; font-size:26px; margin:0 0 4px; }
+  .standfirst{color:var(--ink-soft); font-size:15px; margin:0 0 18px; font-style:italic;}
+
+  label{font-family:'Inter',sans-serif; font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-soft); display:block; margin-bottom:6px;}
+  input[type=text]{ width:100%; font-family:'Source Serif 4',serif; font-size:17px; padding:10px 12px; border:1px solid var(--rule-strong); background:var(--paper-2); color:var(--ink); outline:none; }
+  input[type=text]:focus{border-color:var(--ink);}
+  .row{display:flex; gap:16px; flex-wrap:wrap;}
+  .col{flex:1; min-width:200px;}
+
+  button{ font-family:'Inter',sans-serif; font-weight:600; font-size:13px; letter-spacing:.04em; text-transform:uppercase; cursor:pointer; border:1.5px solid var(--ink); background:var(--ink); color:var(--paper); padding:12px 22px; transition:transform .08s ease, background .15s ease; }
+  button:hover{background:var(--ogre-deep); border-color:var(--ogre-deep);}
+  button:active{transform:translateY(1px);}
+  button.secondary{background:transparent; color:var(--ink);}
+  button.secondary:hover{background:var(--paper-2); color:var(--ink); border-color:var(--ink);}
+  button:disabled{opacity:.4; cursor:not-allowed; background:var(--ink-soft); border-color:var(--ink-soft);}
+
+  .hr{border:none; border-top:1px solid var(--rule); margin:20px 0;}
+  .error-banner{ font-family:'Inter',sans-serif; font-size:13px; background:var(--fiona); color:var(--fiona-deep); border:1px solid var(--fiona-deep); padding:10px 14px; margin-bottom:16px; display:none; }
+
+  .players-list{list-style:none; padding:0; margin:0;}
+  .players-list li{ display:flex; align-items:center; gap:10px; padding:10px 0; border-bottom:1px dotted var(--rule); font-family:'Inter',sans-serif; font-size:14px; }
+  .swatch{width:16px; height:16px; border-radius:50%; border:1.5px solid var(--ink); flex:none; background-size:cover; background-position:center; image-rendering:pixelated;}
+  .tag{font-size:10px; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-soft); margin-left:auto;}
+  .roomcode{ font-family:'Playfair Display',serif; font-weight:900; font-size:clamp(26px,9vw,40px); letter-spacing:.1em; text-align:center; padding:14px 6px; background:var(--paper-2); border:1px dashed var(--rule-strong); word-break:break-all; }
+
+  .game-grid{display:grid; grid-template-columns: 1fr 300px; gap:22px;}
+  @media (max-width:820px){ .game-grid{grid-template-columns:1fr;} }
+
+  .board-wrap{display:flex; flex-direction:column; align-items:center; width:100%;}
+  #ludo-board{ width:100%; max-width:520px; height:auto; aspect-ratio:1 / 1; display:block; }
+  .board-caption{font-family:'Inter',sans-serif; font-size:11px; color:var(--ink-soft); margin-top:10px; text-align:center;}
+
+  .sidebar .article{padding:18px 18px 16px;}
+  .turn-banner{ font-family:'Playfair Display',serif; font-weight:700; font-style:italic; font-size:19px; padding:10px 0; text-align:center; border-top:1px solid var(--rule); border-bottom:1px solid var(--rule); margin:10px 0 14px; }
+
+  .dice-area{display:flex; flex-direction:column; align-items:center; gap:10px; margin-bottom:16px;}
+  .die{
+    width:66px; height:66px; background:var(--paper-2); border:2px solid var(--ink);
+    display:grid; grid-template-columns:repeat(3,1fr); grid-template-rows:repeat(3,1fr);
+    padding:9px; gap:2px; transition:transform .15s ease;
+  }
+  .die.rolling{ animation: dieShake .55s ease; }
+  @keyframes dieShake{
+    0%{ transform:rotate(0deg) scale(1); }
+    20%{ transform:rotate(-14deg) scale(1.05); }
+    40%{ transform:rotate(10deg) scale(1.05); }
+    60%{ transform:rotate(-8deg) scale(1.05); }
+    80%{ transform:rotate(6deg) scale(1.02); }
+    100%{ transform:rotate(0deg) scale(1); }
+  }
+  .die .pip{ width:100%; height:100%; border-radius:50%; background:transparent; align-self:center; justify-self:center; }
+  .die .pip.on{ background:var(--ink); width:65%; height:65%; }
+  .die-caption{ font-family:'Inter',sans-serif; font-size:11px; color:var(--ink-soft); text-align:center; min-height:14px; }
+
+  .player-card{ display:flex; align-items:center; gap:10px; padding:9px 8px; margin-bottom:6px; border:1px solid var(--rule); font-family:'Inter',sans-serif; font-size:13px; }
+  .player-card.active{border-color:var(--ink); background:var(--paper-2);}
+  .player-card .name{font-weight:600; flex:1;}
+  .player-card .pips{font-size:11px; color:var(--ink-soft);}
+
+  .log{ font-family:'Inter',sans-serif; font-size:12px; color:var(--ink-soft); max-height:140px; overflow-y:auto; border-top:1px solid var(--rule); padding-top:10px; margin-top:6px; }
+  .log div{padding:3px 0; border-bottom:1px dotted var(--rule);}
+
+  .token-svg{cursor:pointer;}
+  .token-svg image{ image-rendering:pixelated; image-rendering:crisp-edges; }
+  .token-svg.movable{filter:drop-shadow(0 0 4px rgba(38,48,31,.55));}
+  .token-svg.movable circle.ring{stroke-dasharray:2 2; animation:pulse 1.1s linear infinite;}
+  @keyframes pulse{ to { stroke-dashoffset:8; } }
+
+  .hidden{display:none !important;}
+  .win-overlay{ position:fixed; inset:0; background:rgba(38,48,31,.55); display:flex; align-items:center; justify-content:center; z-index:50; }
+  .win-card{ background:var(--paper); border:3px double var(--ink); padding:40px 50px; text-align:center; max-width:420px; width:90%; }
+  .win-card h2{font-family:'Playfair Display',serif; font-size:32px; margin:0 0 10px;}
+</style>
+</head>
+<body>
+
+<div class="masthead">
+  <div class="kicker">A Modest Broadsheet for Board &amp; Swamp</div>
+  <h1>The Ogre Affairs</h1>
+  <div class="dateline">
+    <span id="edition-date"></span>
+    <span>For Sushi</span>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <div id="screen-lobby">
+    <div class="error-banner" id="lobby-error"></div>
+
+    <div class="article" data-fig="Begin a Match">
+      <h2 class="headline">Start a New Table</h2>
+      <p class="standfirst">Create a room and share the code with up to three friends.</p>
+      <div class="row">
+        <div class="col">
+          <label for="create-name">Your name</label>
+          <input type="text" id="create-name" placeholder="e.g. Fiona" maxlength="20" />
+        </div>
+      </div>
+      <hr class="hr" />
+      <button id="btn-create">Create Room</button>
+    </div>
+
+    <div class="article" data-fig="Join a Table">
+      <h2 class="headline">Already Have a Code?</h2>
+      <p class="standfirst">Enter the four-letter room code a friend sent you.</p>
+      <div class="row">
+        <div class="col">
+          <label for="join-name">Your name</label>
+          <input type="text" id="join-name" placeholder="e.g. Donkey" maxlength="20" />
+        </div>
+        <div class="col">
+          <label for="join-code">Room code</label>
+          <input type="text" id="join-code" placeholder="ABCD" maxlength="4" style="text-transform:uppercase;" />
+        </div>
+      </div>
+      <hr class="hr" />
+      <button id="btn-join">Join Room</button>
+    </div>
+  </div>
+
+  <div id="screen-waiting" class="hidden">
+    <div class="article" data-fig="The Waiting Room">
+      <h2 class="headline">Gathering the Party</h2>
+      <p class="standfirst">Share this code. The game begins once the host says so.</p>
+      <div class="roomcode" id="wait-code">----</div>
+      <hr class="hr" />
+      <ul class="players-list" id="wait-players"></ul>
+      <hr class="hr" />
+      <button id="btn-start">Start Game</button>
+      <span style="font-family:'Inter',sans-serif; font-size:12px;color:var(--ink-soft); margin-left:10px;" id="wait-hint"></span>
+    </div>
+  </div>
+
+  <div id="screen-game" class="hidden">
+    <div class="error-banner" id="game-error"></div>
+    <div class="game-grid">
+      <div class="board-wrap">
+        <div id="board-host"></div>
+        <div class="board-caption">TAP A GLOWING PIECE TO MOVE IT.</div>
+      </div>
+      <div class="sidebar">
+        <div class="article" data-fig="Standings">
+          <div class="turn-banner" id="turn-banner">—</div>
+          <div class="dice-area">
+            <div class="die" id="die-face"></div>
+            <div class="die-caption" id="die-caption"></div>
+            <button id="btn-roll">Roll Dice</button>
+          </div>
+          <div id="players-panel"></div>
+          <div class="log" id="event-log"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div id="win-overlay" class="win-overlay hidden">
+  <div class="win-card">
+    <h2 id="win-title">We Have a Winner</h2>
+    <p style="color:var(--ink-soft); font-size:13px; font-family:'Inter',sans-serif;" id="win-sub"></p>
+    <button class="secondary" id="btn-win-close" style="margin-top:14px;">Back to the Board</button>
+  </div>
+</div>
+
+<script>
+/* =========================================================================
+   THE LUDO TIMES — client
+   The server is the single source of truth. This file only ever (a) sends
+   intents (CreateRoom / JoinRoom / StartGame / RollDice / MoveToken) and
+   (b) renders whatever RoomStateDto the server broadcasts. No game rule
+   is decided here.
+   ========================================================================= */
+
+document.getElementById('edition-date').textContent =
+  new Date().toLocaleDateString(undefined, { weekday:'long', year:'numeric', month:'long', day:'numeric' });
+
+const rootStyle = getComputedStyle(document.documentElement);
+// Each engine color (Red/Green/Yellow/Blue) is permanently mapped to one
+// Shrek character, its sprite, and its pastel color. Players are named
+// after whichever character their assigned color gives them.
+// Character sprites are embedded directly as base64 data URIs (see below)
+// so this page has zero external file dependencies - it is genuinely one
+// single self-contained file, viewable even opened straight off disk.
+const SPRITE = {
+  puss:   "data:image/png;base64,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",
+  shrek:  "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAM8AAACKCAYAAAANFB6AAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAOdEVYdFNvZnR3YXJlAEZpZ21hnrGWYwAABOtJREFUeAHt3D9rZFUYx/HnnBuTaVZnwT8Bm5luYZdFxGYNKzPFtu5MZ6PsVMEq5hXEd5C1M9vMoI0W4qSxNNOEBRGJLoupzC0jKTJgYEOSe483Kwi2P+6zyzXfT7HpDndP5jtDAvkFa6j7Wx8cmKWO1SyUqZ9i2DEHYTHr2nkxTsl6VrMQbJRS2GjinUxHs9waKBoACfEAIuIBRMQDiIgHEBEPICIeQEQ8gIh4ABHxACLiAUTEA4iIBxARDyAiHkBEPICIeAAR8QAi4gFExAOIiAcQBXM0GPc65uBybeXB4xsdczC5s8/ZL/hsayjXeDznoa7dPnaZQsrK0C9icjn765Wn4ePdm8kcZLHolmW2Ux3esZqlGPrVnfvcd/Xcx0/e2LQU3rGaBYvr09XZ1JwsGPCSVe/g7eTwJmuhaJsjfuYBRMQDiIgHEBEPICIeQEQ8gIh4ABHxACLiAUTEA4iIBxARDyAiHkBEPICIeAAR8QAi4gFExAOIiAcQuW4YhJDylDw2RtLl373n5qSpZ1d3nVd3bnW7PNHzuZvKdwAk2fbluIPVbiH/auVp15wsL7f75sT5uUfm4PBwnldf3J57MF4ehlOH10nL5ubIdQrp+Lc3dxo3PVU99w8fHh2Yg5gV3Xvfve1y9vPnvn+0U71hdaxmMYX+ve23Gjk99eqto02vOS6mp/DSMT0FXDHEA4iIBxARDyAiHkBEPICIeAAR8QAi4gFExAOIiAcQEQ8gIh5ARDyAiHgAEfEAIuIBRMQDiIgHEPlOT1n6ovrX4e/Is9wchdDMmaWQQm4O01PmMhHTfB6jav8abN39zCWeMk6mn85yw//CYNxrm9P01HQ0c5ufcv3kSRbWXKan7GL2ye5NlymkGIt+WWZuZxfFwjiE+u8kvmLD4ixsNvHs471iw6LD9NRZXK++TM1JY6enPLa4XsTZly9Aj/MvitCODT2b6SngiiEeQEQ8gIh4ABHxACLiAUTEA4iIBxARDyAiHkBEPICIeAAR8QAi4gFExAOIiAcQEQ8gIh5ARDyAiOkpQOQ6PeXpo8c3Oubgmzv7+a9Hu5+bg9uvv//w5z9/fLCYtWp/QzlJ8+li2ep5nP3HyU+Tbw+3zEOrdTqf73WsidNTvrttj+7upBQ6VrMQ4vDaraNNc5CFYvTlu3sH5iAtpm44D2NL1rOapZBGoQwb1Xe0YzVLZeqv/vLe2GM9J8XQ/+vJ9bXqP1D/9JTF9enqrJnTU/+E4zApVFy0PV6AzzX2s7i5mJ4CrhjiAUTEA4iIBxARDyAiHkBEPICIeAAR8QAi4gFExAOIiAcQEQ8gIh5ARDyAiHgAEfEAIuIBRMQDiFw3DJoqhDAxB0u2NH9WPtvOYv3TWalIuQXbrp79NatZzKLbAk2T+e62lbFvHlo2T2VwOXuysp9PbGlkfh6an5n56ZqTwbi3F5ymp8yR7ydPVoxdpqfO4/Dk9+sbHmcPHvWGKZXfm4OwGPvpvNj0mlmyUKx5TX2530l0uJOz6k7MmJ76j+KinWLsuM1axdAxJ54zS65TXw29E3PELwwAEfEAIuIBRMQDiIgHEBEPICIeQEQ8gIh4ABHxACLiAUTEA4iIBxARDyAiHkBEPICIeAAR8QAi4gFExAOIGjs9FU7N82yXmaXpaJYPxr2h18xSde7MPDT4TszR31Uiio+aGjZ0AAAAAElFTkSuQmCC",
+  donkey: "data:image/png;base64,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",
+  fiona:  "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMcAAAC2CAYAAABte5miAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAOdEVYdFNvZnR3YXJlAEZpZ21hnrGWYwAAJkxJREFUeAHtfX2QZFd13zn3vtfdM7OzO7urDyTtSnIwlSp/kPJHYhsHCK7whytOMESLJCRKIYmLVAwSCcFxqmJXKjE2QcKGxOUqJbExAdtkEWBjUokrqRKESDKYDwkZiC3DjkYCoZV2dmd3Prrfe/eenHNf9+5g+1n3vF5rtKXz2+qd7qn5vft1zr339fudcwEMzyZKD/4NCLjNL1K+TjN/BfpjRa7Ro9xzzP0RfnnQA/n17XyNjWe53IsCBwaD4c+FOYfB0AFzDoOhA+YcBkMHzDkMhg6YcxgMHTDnMBg6YM5hMHTAnMNg6IA5h8HQAXMOg6ED5hzPPhD6oS9vXuyVjey5bRZgeDZB/Ir82uFXmL7PxQ7Mj4pfW9Oyc1FDW28CPWa8Cb82Qdfeecq9KNir2ehiQOq+yK8B6DpQeDJYzZSvhQywGNkI9IgHDowuG4+bF00/59YbeRajrUlzL79fgn7YGg6LV0Dbfk254AbNZ8+dS+1WG+ryMhRVVXxvn3L9sPmDs2fhDL/dD/0gE0ENPXEprxwL3vn3xBiPQf6MJAPUoMPfxoj3R4jvBL0k+iTzP0iR3gTKpX84xG/+/JuX7ypK/PcxJKfOAjpAinHrp37p6ZdvnsNPgM4xpY5b+5bpR975lpX/6rxbjPm9hc7BTlPDrf/irqffPx5Tdp2FzfWuXnBo4e5/dtvSm7xDryx3PHDu2Bt+5ptr/PEBAFCVza8JAd3MPz8JupXyPC5l5yBuvNRfZlKNgdfTvxejkZVjQcGVmU9mslm5QyX3dFk6hwiLzueXy0bG3o8NN3hWZ+1MGpmL7BgL3uOyU+wX0BFh6ZH5Uu4+0GEHCXzh3IjbMNKVK4NEbjgEV01SXy2DDrJqzLUzutTvOfrsSWlObtz1U4sYeA4rCnZsTckkMwHPn9i73JZL7CQxzSqKshFCO+/2KpfpsmCQJ225ssQXuz7pi4Y571fs2yqDoQPmHAZDB8w5DIYOmHMYDB0w5zAYOmDOYTB0wJzDYOiAOYfB0AFzDoOhA5e6c/SRB7g5uPinXlpu7/6O841VPy6mR8zzSDD4wXwPftu784pi5xbVXuryERE2iJRbo62aSTBm6lotmmm5E1BKKoigJgr8w1ekNFe2svH07azNGmlE4kYHAR3siCgtl8g2mrhISZOmKje1N8nCuJ8xKWDyQViRPy8BaUDf5tnY9paQ7LVzSHdphH8zpA4bOPcBh/TArt9lISKeGJR+rWqat7p2Vs0fcIAzOHSrMcZV0HGxKGCd6tEXwddvZX92hHlcL7KqGMN+gKfq0r2NpwKvKReSQ4WnMLi3OXI+t1x2CIziU7H5k6LAnxoSu5ZXlBsgLi/AQ47gRCTvnKJc7tkYd5rVyUSEnvQ2UPb19G9PwBzYa+dIsvNpPbIbTpGaZYjveO/V111LDfww8ZSIOXz5M9Gnegz8Bij6lxCRz+EmZWwUZWtYP/kTgSf++MNs3aJZzSmXK81/iHjquv9MG26y+EMRQyHZxCEDbCvIJdX/7l+94ONxEl7CvyqkE7K46JiM9fLAfXzhP4aXsIEWmGmksqVip6wLP/jUL73tMq4zFhjz5IPEncPtC8OTozOH7oaXYOB+drntlY7FsAjlvfzRMX4IlDYCMlwx3gtzYK+dY8ANeA3oJNjS8B3e0/w3CvhynkJvCo7ytlXtjNQgz6NU4P1s4MfYr7JWLhkVNjNRjT9WUNjmob6RUoyBYtGJtBYb/0fskK9l61nIH2nRtuImVu4X0dOr+UL7KfM2Is3CAJtbzF1EejWEsF+xvRFr3m6wuofQ3wCOlihXd07pdqOC2HwTor+RPw8pP6pC7jjGtYPfGAKsVZFuAF2Q1yyg7Tf49Sj0xHPhnkMMW10PzxOg7GIjuWIa15EFlNiG6bIr6nE22TKXy+XIvOnSARIx1Tufi+1E7GW/gE2h4lJbuoArwKsGKuo8dWz5wKsGv0rd3j8tmrLQeq5+qdnBczls307ul9r2Zpfb3sYjNxUufJGR3eYpxjDnTflz4duqvlr9Fqjlz/clxmxLQtir3gnzBBngfPT+dZ6vvWpuS2hgTlg8h8HwlwFzDoOhA+YcBkMHzDkMhg6YcxgMHTDnMBg6YM5hMHTAnMNg6MCl6hy9n+TNK8HedSHVdYjme/o4V71x/jb3eppGF6mv94b/nJGsixxale8W0kNbjASU3kPm+EnSWRGbTnUJ8qFGzCt7mo4ziugPHQYkqLIVrjwRJbVLiOQJA0mbc8ttH4w3sw+ExP2FWdyptuo8F4m5iJnloggC6lRk+kzcV3lcIaexERVhbGXruU/3k86GsBEBMVwY2z42sufpQEVj1CfjuKBa9O4j0OpmVBLswuE6IX6KDVXUnpgboiADHSjeF6l4dODCPV6ywWZy0wTsYD069yBb+ocQnMutdRRtPMGpOMBVqMOHPZOzRzqi6GFrvxnWwz78CDe2zDY0kbuzM1EZT/HHj1BRlBHyFL1JU0W+oRLXC6R7uL+LbPN0UkEXg8eHyMGHXNLpZnLFewmC9+H0EOB07VBsRKvK5WGmdQXnz2Be53AllC9uoJllK9dUXrJg//ivX/FtR7kfhyLqyyGm2YyoiQO26jocCOCuk9kxX/4tem88SkRrPHhHQYR8+VwpZx8GWOEBv5br7CFTOs7eIVPu0mP/eCwL1lGpRrYurG1fNVjmt5twLX8YyCqUQxViDFgPMaw88RPFtSI8FDvN4aZtEWLd8BzOlb2WHaPMzfLLoymrTjO+oll54o1wrcQHaNor0SADH/DszyZPkf6SLOualSPAXq8cbCAH+ccPQpv9W+McG0dEq4/wPTxUB0XsmkOUVRqdk6iwg7yveTH/QrT+PodM7TwaeCY+4Qp6PAT8Af71KLfSlPZQtMaj/uWY2kyDFAiaw8Uk513lPdX1/PFvkCLIKwlU2S3Clj8EGL6Pf7EfMtMyU3sUwGYVSs+r1/ehyN3zt4LSuG0/QB5j/H6uwzJkTiTYKpdlC/f75OIPkCIj/VSTOwHvV4ZDOFtN4PuhzbKumnz5tQJzOMi8zrE7nlp7cz8TYotX+KhY/UQ3Lr0+AAk2RXGMzHbIhJT2+9MRTlNofh9gu7oRthfiKmuk8ilReuITSoCVsu+nVUaSrVx+WDBd+D9tCtuyVfQUmUGpr7LLpVYnXzlII+v4HkLVXrkPDNHvti3tOSq9ssLvxp5/W9WnBbv32/NIqefBnhQK7RICfTEHd25LuwRhzzkMhg6YcxgMHTDnMBg6YM5hMHTAnMNg6IA5h8HQAXMOg6ED5hwGQwf23jl6PZbC9LgVNY96LxS3J5L1OeXbc8nOCS9Sm9UF75nMvr3CnLgYqtzdmbBVwrAISRMto9dArvAwpfSkIIroJL4jkLTlgNlJimNope7T7IdJiZKpcG0HmzlRRBgBhKuQ9Iq40hOKKnimgMkU4pGIRpqpCEU6ucFMybp0EjpsZg3gDsvmJsGLw1okfCIeYXo+t71AkzSELo1tDZSfKxeSKre1relYqe0LLiSU7gVxjkXQQwoUYRctjYrVpqYPkV6VW38jhIaXro86F8uYyW1l1GxfNZ5G5z6FKGLwpM+iDG6y0AnG/0tUrA0xHmdmQZlli4grOlwHKh/EGI47SUKd6VgxlY2neMRWSw/H2WgKylS4YqvjqscU1geOPlyktJyU7ZQSw9Fy3Ye5wqWmXFHWUlGewqa+h1ubXedpSvRYk3uw4L5K00nmZIBt0SHWcHowgTPeuXumKUU19hXJudPbdT2a8rSSsrrwzv8y6CD2FWKMb+f3q7915ZEDOxM2UYzZ2xzJ+9zwv9c+8bVpAloPLnsSlTWDfaEoN0BifkR7KFFImYVzvWHoPaUFJ7bDn82VuvOac+jXfDrHIP9kFgchRPRsHi/51Tdw+aOkdM9fdJIWGWqqoKCSFwKnWbDShD2gEiqqJF27qlzkKaFpxmddUaYs3NlxM6Ku5H4++5UT8Mdv/z3eJkTFNtiJPchSdfZD+7+DcLiVKwY+z/e8QMcynPvxJ55491gR/wJT+3bRfaBgY3k96DCTA/8myPkHjT/oML6GW76QWwHudMcdfZbfvpln0ldxQ1ZyZ6QUYYY0dm78W7FxL+PPN7VRdhn05Fe8HeINkSvwvojw9/l3C5Qp/xawg6zxrmiLje4GEpvLYtGM/KiP+BXw8QaeRBdyo6ySqhVok5f4u3idfBXT9rvcuIrU17DJTb/LO3yVZGh3qq1g2CnL4XGeSXiM41I2VwLQYqiGW/QENHSMLzXInUqSCBhhwu70gTg6h0X0r+Zf7KNs+0oC5B1u+nH2sWM8Ee1TuNYs1ug+War63Hec3/v59IG3JuyduRWQ+SdO+4kklbaCO5XkTuSQDZeugvltwGmA2oUY05R1HPIRW8l3immTMgcKrkz+zrkg8VVyvkapmQtnZpEyyqu5Ut1KtvEpq3w2N+34ccx1lVsN2VXquMj3OhLvKFsiktgXDRUmPMDIK7U4Ci/1pMoszyvPOKQFo18Wf6nCRfq2SrXmzc29EFDdR7I+75cY52fsfm2Ouy/Rp/i9kazPGRqwVwr/ecome85hMHTAnMNg6IA5h8HQAXMOg6ED5hwGQwfMOQyGDphzGAwdMOcwGDrQ1znmlgOfv0CPRzSzx9N9ajGvZB2TwqjXdfZSgj33eD3boLnrPL+Jio31Oew5zN5Mzv9KzrzPfdotwtrYKjhERUgo18vXN1HKhCyZiWP7nkJ2vluKwSX5YPok/2XXu1XXpzTt8sBYZOfZ5UpRovwWDXGRlISgarOInKa5JbEPV1Kc+wtS7vwpSRT2ku28jSjQcSnpPIUq4veApJAGSCZ6aiNCphneFWWnTgoiLp3+QlfvqTxenOM+0CHJgfl1Rj7UFM6gg8/wABSUmVKf7ct5Efvwdfjn5xzSICpS2yNSg+TPBBfWXIDfl4S7mSo8JCEDfQmDSN5TvV1WPAfNBK50Ar1/1FP8NNfZ54gt22yaQN7RiRIG69yCz4hGC3IHrE0+WkMt0l78LHeACB7z+msqdx+NF083C5ufZSsdoILL9txgDGe4zp/lLih1XAzhXLXqS/y0Zw/D7LgZOYEAQunDmapxMhl9DtAX2WWLdo6HObg61ZuvKLos1fEFAcKaOMd1oEOKxZi9HyIdqMhdyw0oYm6cQBIv0yQ1guCoQxyGmB0nIB1Xi604dCtMulZij2IeV8iRneIIF7fmCI6IYDK33tK9JbjmZf/llgPeS6Z2nhAykqzj+f98w3OZcyFI1vD8YxcopWWuwMnBBeGoqO5VXJ6IdgaTlVKyu5NktFeWW3JxYXKE25/PFXkphbD48m9f+d6XvvCoxGPETPOUYAAeoxoWRvgHf/cu7qnRUa5IGTOdy6Ws9K4q61Ii044AKPprat8e/P4+ziHYhjaDNTneJPBW5Up+v+QU+zzej5yB1k8Oc7UPabg8aFu8TTg4DHSAadfw5zL35okdq3GBDvI8dIA3Y1fxbxZzyxZpOw9QLLxfCd5dw549ypdupnC+AFSvALoXcNOXVLsbxA12DN5H+iv4/QEtd8iNbQjVXB7hTaiag9HhC5i7nM9N4ZkT72CFF8mr+dNCdl+1qaO3fKQD20RnR4CXM39/7qY9qXqJNmkAB7lI7uuUoV0Dse+DKRQb9DhfzWnqawT1dc43tQe3DeyidCZA6nJFGA3SbBc71XKrIsSktMCGNkuXns3cFenTxmaRqs2ztS1tIaknF0HNnaEl6biy/41pLys8BZfaXWyYBTbQdGOpKlxu8s6r3Pt8eYJ7/lVuHz3xcyHLer9S56/qXGr3vempSxUmWTcYumDOYTB0wJzDYOiAOYfB0AFzDoOhA+YcBkMHzDkMhg6YcxgMHdgzyfr5J6a9HkzNkWWdzrdZzZ4KCFFSgZKWn7Je95+MdtW7B7f/8yxC6j3W6ck49eXvGt1+V5g7REBsbFvH+RbhYdICOwQR1I1dpvIx6cooXQOZGx3gWGRLOVxqdaZVylwoaiXCClLm8FxhbpLhRohBsrnWUVFvMW4n8nhfSKbcKqWvzlYTE3Nd3YQGvC8rSUlNmVwpxcVYVSgD5qTsca4qVzqJGcx1U25krqZcSdAr6jOUtIfjXOX19AKNdySy9RpbHV12uYyahiWVKAnmU2biMSiUtTx7VdAmlxeOhitIivGCO++fgg4zyfrX5H30gy9QmNzhU2BDtjQMC0x+NXHo/rmouSVPfS4XQ4wlNl9tHL4PmsEnvccLASZ/EXMqM+U5fHXgiseqKt7uvXM59U7cILlDab0e4WME/pGUFjSjy4MkrPaSSxNPN6Plh6vY3CE5wD3ktpnHuijDelOdPFQM3hKp9hpuU7gQm9HJsqiZO87mhiRuZcMM4ZFiNLi9bmoV10nWV+8fJgjZfXWeW0CMdXUiwmjDu+IOWTmdQlnreDaJo/AIX+p2SpERugztAcL/kTf7QA8paEcu8rcAii8BjEAJaeiTAFtXAixF5RI45Y6vZ3vb6pEHdQmgOcxjsNZKmVWQsi/7zu+sT548qcmTm1CWZbzqqqvqtbU1fbnsw08++eTO5Zdfrj4y4iJwx8xdgB644oorqj59NauzvL+8xzEZMxvht33qLfZdyUy6Djqk+ACeSW/kn5/4+DV/9RXbMRyHNPvnXgBdQ7R58xNffdEHr3rhIzzxL6qyYPNWiKelW4HcTVyPG2AaMZbHxcDTyEcjxvt5CXkniLA4kytxH7zMP/WDv3bbB6Pzb8KQx6QUYsX/nHsS/tqtd8WA7+Aae8gEtRq47YWhe8V4Eu/lqmRPRomLzAXm/uH77hWZfS437T+JxuD8bfhdt75fQgMUifxlnKqiOn13/ce/+5NOc8pT2sXhhBbKmx565Z1ruG/hft5+ZzuYhHNwh42rEm+7+ZuPvn87kiZZeMqyzlvgfymz7kHQgyfsdnC5VO4xNm502d7dBv+09xgF4hJb54rmvpz/dhPlSI/A28Lo9gEqVg8JlIr89553NRGWeBQUM0uUhN8bS+AK3i4scRuyVwBqj0k6s7Cy7KMfLvGldDMa3+xg3HbLuLDE7/bruJ5wfM6VDrnqsF+j/o5A50oosTh0aJGn830qaS/CTlg/UzSFX+JbyqFKdY6w6SLvBwfklkjsC1UxGewc53zjZb8sdqndHcl9uO977BnBrj1cTNGU+Z0m02CcnvIT0p0pqe6WIIURYjocQ+JWNXnaJcZgls0/HY+iCYluQ135/jLIV08RosalIcVUhxCIN/GqOidwBy0MgHaqFJGtIFIKul8YDIhX+JgCujVf85Gc98BfIhB/dyETsFb3HiWOvGnL1TiHxK004/Q2tHMLqDA9J00RWvunYZJ1g6EL5hwGQwfMOQyGDphzGAwdMOcwGDpgzmEwdMCcw2DogDmHwdABcw6DoQN9n5BfBKe6SPEc2ofUlBL/pYuAEthKoac/SBdOIlrgpL6e5YjUpOTEb43JUHFbfVVV9Yl+SY+JRUEN+rKx1ag3TU9bwQuioGc/niNlPJTiz4IeEotB0zdiJTutiCMvJmOaSX+nfU812+sWtCnms8CmWVErWQlciy1+77N1DdMs7T5SaNDtQIpBouwUx5HrK8oEJNwmig1qYjKAKu+SnIHb7qLLLReTqmunqiR0ZSRhHVsuT6XfciPsnB2PY5kEo7iFudy24pOmIRrwTxS9E2G2HCNwyeiR2bQjxyCgIhaEHbr2rohlKzMStdAWtkdV5GIyPYJAEpZvgk5GIsqTIPEcx0CHWTzHQ/KhQP9QRfF1fCUnaZJzLlClLNhBrlE1pXu9zIq53Ji4GMvgv9BQPM3Gebw9ZCRvovCSv9WVq2Osowt4M8rBCbldXkjj3Wk3jKepLu9D55n6zMebyFqBWLJ31Ke38ew60BU3Q9NoRjr1+aGlq05ubG3dGmB2fk5WnXHj5Eb8K9dd89Wv/69fuGXUSGxDZixIiCmeoxwsf35SwS0hUna5vkijQrjxpVUH7lOS5DfkHgUjJy34Isatg1+MMJJIjlvRE/qQt2wFCfAqMI6x+jxzb+E5LL+/LsRzfJ5XTPwV0CFFArJT3cw/TxNUL+a6/AfXwCA3b22RIii9KB//+qCOv8gjsBgw/wgCjKGKGF7/yve+8SZE9yqZVvMEhLzIsRuyM37s3jfcfX8E93ZS1BtrEuHh18oX/cPfKw4feKMcQQC5xoKOdgC/dueJp/9TXX/957jIAWgGDHE8CPDqysO72VpGQLmqR15jHI7/zVe+8urRY8ffwzY6Ssfv5BTqRNYJVdWcue2utaffwwv0EDPLpXbT21y19Lfv/kcvHb2RG1uQpr3O17hT3zycvHUjFAfew6vGIFdxmWykhmoxDm7jtr6HO099BAE79E/L4L4Q9BDJ+kFot7Ny7I+cN7Gk2QqzM5yWigTAqwugQ7otOG7y3HDQOX+Yh+86gly9Poqt1I4Gh3kBOch9fS3/blFRNqV7lsHiZ7BYOEoQs2Xnae/W8F6qjof4I3Ml5iofbKUbE+clO/vVvJ1byd9Rp2OVNra9xEv6q7kaK/l3H+m+4Rwb5kFeoa/hK+3PjwhPN2fjGuvDUBw8yg1Y0NwgsndsBahXtgd0bgRwNVP3a24i+G/P8V7wIP+8hj/qJP5T+55Hsp7QpvRXiZGnf9uaJCKANluBEKXiaRMZ5UgTRafLITlp8msjJ5XlpvwKsiWCNrU+aIAXQoElRlpDhfb0gPad9tY6Vbbsn2M97ZBce4qAwjfS/5i2cLFHX1G6O4S++NYjCNRsgEv9CILYxmfAnkBfbLv16xtecOEqzzaaPSp3j2HxHAZDF8w5DIYOmHMYDB0w5zAYOmDOYTB0wJzDYOiAOYfB0AFzDoOhA5fkEQTnH6j3qP1M+h17tAGnD/RjVD/UT/RUtuvX5TTPM6k5jyDoK6NIWbt72grNb2PPzyMIEFwVp9IE/lBxBfKPIEBJACtycaAoae5VRxCQ5DcOTjKPcx1SXvlcyTobaOG5zexZzhcVThM/ZnHbgI6qqWosF4aSs30M2ccItDlrm81t7nSMnvw4IuTL7COX2yavjc67MUK+ZF0k/a4oYiSseYy4+Ny+mtqY99MjCNCOIMjlyhEEIRZfrUfwPqLyk7Ol4JkQRYdVEGEIq6HBx5yLtzvlEQTsH+vnKDzmNs8+AiEv26SsNPLTle50MSwfLgPcIbaGLq/NFEVN7AP4ycm68G9Bit5lcqXNPCGEfbh9cqcYMrdWHkHAFyjpkX2Dwe0Vl5tbZ15eMVIRr/Xw8M65M49w5THk26d0dPR1PBHhwIb37g6JarAjCPK54+uvv77c2trSH0GwtNQcPnw49D0K4LLLLut9BME3rrqqvtyOIMgt144g0B5BwBuwMe8Pbn3Ze994EzfjBsiMTxDttsz/DsqPUhHuhwbeyVfzOXNKWuolaTXiU/A9r/8g1fFNudJaovbQHN77PfnrT+/c1VB4B89o2UcQgOxcibZLHLxi4up7QeI5cmfhdJAVbg/L+Ip/sHr8Xm6u6ggCrvu4dnTbr175mveDG5S55aZwYsTqyoXB3Tcs+J+MOi0xr1hu4ppw0x++6LvWqqUD9zuHdgRBDgjjJg+yW3YDrn/cx581q0ftgTfCvGqDl+z2+UcBUHufszHat1K4YbnEK3/+EQTslztEZ5pTT/hQFEuonNFEfXwuVHzfMlziD/nxCVPp+Dm2tSVfcl/rYhu4f85JtBSUS4u88c/fZcjocpOrclQcuPzgUolyUJAitADdZr257bblCAJAnjztCILs8sXBQhPSHaMcCqAom2q5xXNCq0kVMpBCnVyU8E8irz8KgL1Y4popoC6QZAq+PSW5iegjHvcSz0F8s6YN65AoYi8hMMyVr05yDXz2Z0KD9tgEXckX/jroyXYEgcHwlwlzDoOhA+YcBkMHzDkMhg6YcxgMHTDnMBg6YM5hMHTAnMNg6EDfh4AG0KZ4b9Nnp/y4BGpBNXV+yCx6bpC+3F3UXgECe4zeUv3dH9on3qDCpb5k4dTYNQkuBaK5afMhKzMe/hnb1FjqRejt2KNcSvEI0ygYUDrX9I8lR3rvxIXz4aLEczSSxlmjHEQATS755wqSOUeC8cZTKVMlqVwDoY4R9g0H0EiqeKW9it6kmUTwA41ecVY4wnbVXkWP1pGXhqXIhEQRqOAi7B/w32+dklgYUGGmy1Trly8eJJ7jTdAPKZ7jX5/6OuxzfleOzmdG0kVNvWnvF898JIfgaj/44XeCGtRqRf/J638OYLSsX3Om3pREZaSUC0mA13gCYRVbrjYFbePh9qMHgZwuMbz0lV//GtSf/W2otZoux45YypIx1Nf3IkFWjg9AP8jkj18ej6HGqBpsgQzvEbj0IKtFjO2GSrVyiHaOB3woZzu5fuMt5bqegacF29gG9L1tCLAgZTrl3ki2VbzSNOKQMZlLPldWqGZ6nkeve5b5Ic5RQ3/4Zpq4XIu+93bPJaBmxHYFG/bJd4677lO0/JkjztvndP6/7L+e1WBaCU1/wZ5jz+6LL6XtlOH5CXvOYTB0wJzDYOiAOYfB0AFzDoOhA+YcBkMHzDkMhg6YcxgMHTDnMBg6sJfOsSdZ1iOB8+lhbVQrOCilOGz/04o4UtJDSYXke2ZZnyNTemRuVfUTKEmKr6LoIXaENmF404Se9eb6zjTj/Z4Yz/OcOVnIxYjnSHlFQS9KnsQ2y3rDrG1N9m4uaFy3WR8l2/kOSKb17FPgU5b1ZppHbtLWOY8rBs71rZkhQqGdKOnZcpJn4+x/rCVDmRvgmFJmas0Z6nFclgNomgk3Hbdzs7snJtF4/dyEFtqs8qLCzsuGD0kbNKY2617FjiKp2rO53LjGFT44dOPYzkYKMZqrvPOxzbJOFXfWNipy/zlwYw9ByhN51DbobFPsOczrHLGB5kH+eQPokIS532AjR/Q3Sfs1bs6TPy35wRfqAZxyIfwmDBXNIFk7hqu43fDP5gZIqdOfGVJCIxZSuTPMOMP9/onSUbYWeSx/WcQzEOvT0OwcE09pcnX7MnE3DRX7qpNsbjciBKfhnjqzGY+87tY/eeKnX3nj8mDompmg7xkwbTM5t/wQ2/aNDmuETK6wsaA4OfWVtfGguLdAp5vJ2SPR0xeXD1zJFzl7o2Rpz6W2gsFAcSc8iM4do9jo8vRy6QGYC/Mj6TVBD7GqYsn7m0M7/KoU8WUIv0uj4rt57b1+Wn5eSn6eusvCn/h//+Pn1xYn8aUh1F4GIofrfbrA6Ui45lx4cZAkzc7lz0jM/fIfffVhdsu/GSKpjhFg2wrBlx/3Vf1jhDquZ+6IuS980eEf45XWy4k0OVxeFGWyDoPB/v8eqvHfiSBHH+Stsl6GJGK8538//PAdv/I7383drhpjHqdYDBd/BzY2oPH+7/WxkUEIHzsLPJH122LFi7Wt6hu7tLgd4p2gS/QrDd0ZAzzmqvg6nlZugvzGS1hWszzC4zBu7uM58V0QcJhrKyGktn6DjeuDMeDtIDFqmZlrZUvBW7DHK4I7efW60yGXmxmXIeEYSHHbE34aPN3JbrEvn0vIc+j2uC4+42lwJzjcly+1l6N+iu1Y10+wtb4LJaFz3kLLC1wKV5qs7Ct+ua7DmydVo810Pqbxxir/fAxDfBfojiFIfLaRNf75Cehpn8+FGHKJoNGeoSBru5u+hJ/dDh7gSk5/SLM+0ID/X1BMK3yPgz6SHDyTytWcS8IbulCmuxbkcklVrtycjQeTCqpBio1TcNNXCOPSp9usIe9gF1SxNyThOrwEIA35Sgv501AqhfjbD2mxtq8EszGWEsWxtDYyCyDpvTt6LnyV2zd28897nw2ftgc6aurl9LUR6iKdzvP5ZjYC9EqTPruGOiH9Lq7iJn43pncZvbiuXZb3Inxn7nLtOYfB0AFzDoOhA+YcBkMHzDkMhg6YcxgMHTDnMBg6YM5hMHTAnMNg6IA5h8HQgUv1CIJZgEEfaUA7IfDjYu8KOV87n9lmj3Yp7S2SNkAiZWFGT9MUyeozCFztC75Crcu0OOM2EZ3kNFZyRVk/5C4LUamqdUm36KjNs94H807c/YJQduG54Bxjfp0FnTyhnv59M+VKOxSKTWp2gAKFZpOIKpGE5BBTsBPSmC20iTGeZdY4PzmnOBOOY2A7g3iOq1Gp4hsil4Uiz6LtNpRFxx1gGTeY69qzDFSxDTESeR83UZTc2SpNUbBJW0nGaBPaGAlNuQ20YyycHZi1RMefS0Ky11k5ZXbYD/2wBa0gbaCjpTZPjh07NnnggQe0XCiKgg4fXg1PPnlEPbEId3V1tT5yRF3nhMcfhzFztQK+XdwjPbmPV8xV1/kov6orr2w+97nPLUE/iFOJQ/S1EeHL1qCXgzxfU9b6AoqXRhdvAUUsiAzT0tLw9MMf+9n7R3H4ozyP++xoJ8nLXsb1UNf/syj9jRShwOxVB2VDVlMx/BlXj/9tJBj04QJzQcFNhyYwt8Ktu77jR3/hbVtVrVmh0yVcdB9ooPkUQH/B5F7h+XrsGe+F6dvYuG8G3fEohJHWRpUfLxV4S4SQPZvKfizWtMY7skcwwk18s5MfnyD3OgE3sd58Nzl4LZtn/kyauMBcZG6j50a308ThR3gKeS33lzbupuJ+foB/3g/mHJcUZhGMmj6QAXa88WcfQfmZH0dCbV6IEOQsk6bYlT7gmdHO1eTZyiMVnid+JReZS/Llg/xQcdF5bi3JHY7c4D6v7OX5/FXuPMc/yjdG/fKmzAua4yJ9uXJri/P116UIe85hMHTAnMNg6IA5h8HQAXMOg6ED5hwGQwfMOQyGDphzGAwdMOcwGDrwfHaOPrqy8xwi0h1B8C3lPes6uP5cApzzufglq997PstHxEJFDjKTv+dAVCAhUtK4S9bYCnKflIszIUSf3MqHtty8DITpZA+iRjTfLlkr9uSCiitwDiof3Wwm0PSVoLci9rmA56tzSFjFqnPuOGhUuZCmwXXn44NE/njKs5zJdUnD16wjlCeA3IecSKUyz+eIESQ3b9VsNuujJf9h9q6SjTbLSGOUvL6+GlKxzpaq4gbmAhUN1tU6u+Q96FCT6Vz6JoYYVuESFB0K/j/eLXBKz69thAAAAABJRU5ErkJggg==",
+};
+const THEME = {
+  Red:    { name: 'Puss in Boots', img: SPRITE.puss,   css: rootStyle.getPropertyValue('--puss').trim(),   deep: rootStyle.getPropertyValue('--puss-deep').trim() },
+  Green:  { name: 'Shrek',         img: SPRITE.shrek,  css: rootStyle.getPropertyValue('--ogre').trim(),   deep: rootStyle.getPropertyValue('--ogre-deep').trim() },
+  Yellow: { name: 'Donkey',        img: SPRITE.donkey, css: rootStyle.getPropertyValue('--donkey').trim(), deep: rootStyle.getPropertyValue('--donkey-deep').trim() },
+  Blue:   { name: 'Fiona',         img: SPRITE.fiona,  css: rootStyle.getPropertyValue('--fiona').trim(),  deep: rootStyle.getPropertyValue('--fiona-deep').trim() },
+};
+
+const CELL = 34;
+const GRID = 15;
+const BOARD_PX = CELL * GRID;
+
+// Global 52-cell ring, index 0 = Red's entry square. Matches BoardConstants.StartOffset
+// on the server (Red=0, Green=13, Yellow=26, Blue=39).
+const RING = [
+  [1,6],[2,6],[3,6],[4,6],[5,6],
+  [6,5],[6,4],[6,3],[6,2],[6,1],[6,0],
+  [7,0],
+  [8,0],[8,1],[8,2],[8,3],[8,4],[8,5],
+  [9,6],[10,6],[11,6],[12,6],[13,6],[14,6],
+  [14,7],
+  [14,8],[13,8],[12,8],[11,8],[10,8],[9,8],
+  [8,9],[8,10],[8,11],[8,12],[8,13],[8,14],
+  [7,14],
+  [6,14],[6,13],[6,12],[6,11],[6,10],[6,9],
+  [5,8],[4,8],[3,8],[2,8],[1,8],[0,8],
+  [0,7],[0,6]
+];
+
+const HOME_COLUMN = {
+  Red:    [[1,7],[2,7],[3,7],[4,7],[5,7],[6,7]],
+  Green:  [[7,1],[7,2],[7,3],[7,4],[7,5],[7,6]],
+  Yellow: [[13,7],[12,7],[11,7],[10,7],[9,7],[8,7]],
+  Blue:   [[7,13],[7,12],[7,11],[7,10],[7,9],[7,8]],
+};
+
+const BASE_SLOTS = {
+  Red:    [[1.5,1.5],[3.5,1.5],[1.5,3.5],[3.5,3.5]],
+  Green:  [[10.5,1.5],[12.5,1.5],[10.5,3.5],[12.5,3.5]],
+  Yellow: [[10.5,10.5],[12.5,10.5],[10.5,12.5],[12.5,12.5]],
+  Blue:   [[1.5,10.5],[3.5,10.5],[1.5,12.5],[3.5,12.5]],
+};
+
+const START_OFFSET = { Red:0, Green:13, Yellow:26, Blue:39 };
+const SAFE_SQUARES = new Set([0,8,13,21,26,34,39,47]);
+
+function cellCenter([col,row]){ return { x: col*CELL + CELL/2, y: row*CELL + CELL/2 }; }
+
+function tokenCellCoord(color, steps, baseSlotIndex){
+  if (steps === 0) return BASE_SLOTS[color][baseSlotIndex];
+  if (steps === 57) return [7,7];
+  if (steps >= 52) return HOME_COLUMN[color][steps-52];
+  const globalIdx = (START_OFFSET[color] + steps - 1) % 52;
+  return RING[globalIdx];
+}
+
+function buildBoardSvg(){
+  const NS = 'http://www.w3.org/2000/svg';
+  const svg = document.createElementNS(NS,'svg');
+  svg.setAttribute('viewBox', `0 0 ${BOARD_PX} ${BOARD_PX}`);
+  svg.setAttribute('width', BOARD_PX);
+  svg.setAttribute('height', BOARD_PX);
+  svg.setAttribute('preserveAspectRatio', 'xMidYMid meet');
+  svg.id = 'ludo-board';
+  svg.style.background = '#FBF8F0';
+  svg.style.border = '2px solid var(--ink)';
+
+  const g = (tag, attrs) => {
+    const el = document.createElementNS(NS, tag);
+    for (const k in attrs) el.setAttribute(k, attrs[k]);
+    return el;
+  };
+
+  const baseQuadrant = (color, x, y) => {
+    svg.appendChild(g('rect', { x, y, width: CELL*6, height: CELL*6, fill: THEME[color].css, opacity: 0.35, stroke: 'var(--ink)', 'stroke-width': 1 }));
+    svg.appendChild(g('rect', { x: x+CELL*1.1, y: y+CELL*1.1, width: CELL*3.8, height: CELL*3.8, fill: '#FBF8F0', stroke: 'var(--ink)', 'stroke-width': 1 }));
+  };
+  baseQuadrant('Red', 0, 0);
+  baseQuadrant('Green', CELL*9, 0);
+  baseQuadrant('Yellow', CELL*9, CELL*9);
+  baseQuadrant('Blue', 0, CELL*9);
+
+  RING.forEach(([col,row], idx) => {
+    const isSafe = SAFE_SQUARES.has(idx);
+    svg.appendChild(g('rect', { x: col*CELL, y: row*CELL, width: CELL, height: CELL, fill: isSafe ? '#EFEADA' : '#FBF8F0', stroke: '#C9CBB5', 'stroke-width':1 }));
+    if (isSafe){
+      const star = g('text', { x: col*CELL+CELL/2, y: row*CELL+CELL/2+4, 'text-anchor':'middle', 'font-size':14, fill:'var(--ink-soft)', 'font-family':'Inter,sans-serif' });
+      star.textContent = '★';
+      svg.appendChild(star);
+    }
+  });
+
+  for (const color in HOME_COLUMN){
+    HOME_COLUMN[color].forEach(([col,row]) => {
+      svg.appendChild(g('rect', { x: col*CELL, y: row*CELL, width: CELL, height: CELL, fill: THEME[color].css, opacity:0.55, stroke:'var(--ink)', 'stroke-width':0.75 }));
+    });
+  }
+
+  const cx = 7.5*CELL, cy = 7.5*CELL;
+  const tri = (points, color) => svg.appendChild(g('polygon', { points, fill: THEME[color].css, stroke:'var(--ink)', 'stroke-width':1 }));
+  tri(`${6*CELL},${6*CELL} ${9*CELL},${6*CELL} ${cx},${cy}`, 'Green');
+  tri(`${9*CELL},${6*CELL} ${9*CELL},${9*CELL} ${cx},${cy}`, 'Yellow');
+  tri(`${9*CELL},${9*CELL} ${6*CELL},${9*CELL} ${cx},${cy}`, 'Blue');
+  tri(`${6*CELL},${9*CELL} ${6*CELL},${6*CELL} ${cx},${cy}`, 'Red');
+
+  svg.appendChild(g('rect', { x:0.5, y:0.5, width: BOARD_PX-1, height: BOARD_PX-1, fill:'none', stroke:'var(--ink)', 'stroke-width':2 }));
+
+  const tokenLayer = g('g', { id: 'token-layer' });
+  svg.appendChild(tokenLayer);
+
+  return svg;
+}
+
+// ---------- Physical-looking die: 3x3 pip grid, standard dot patterns ----------
+const PIP_PATTERNS = {
+  0: [],
+  1: [4],
+  2: [0, 8],
+  3: [0, 4, 8],
+  4: [0, 2, 6, 8],
+  5: [0, 2, 4, 6, 8],
+  6: [0, 2, 3, 5, 6, 8],
+};
+function renderDieFace(value){
+  const die = document.getElementById('die-face');
+  die.innerHTML = '';
+  const pattern = PIP_PATTERNS[value] || [];
+  for (let i = 0; i < 9; i++){
+    const pip = document.createElement('div');
+    pip.className = 'pip' + (pattern.includes(i) ? ' on' : '');
+    die.appendChild(pip);
+  }
+}
+renderDieFace(0);
+
+// Everyone in the room gets this same event (the hub broadcasts DiceRolled
+// to the whole group), so every screen tumbles through random faces
+// together before settling on the real, server-decided value.
+let diceRollGeneration = 0;
+function animateDiceRoll(finalValue, rollerName){
+  const die = document.getElementById('die-face');
+  const caption = document.getElementById('die-caption');
+  const myGen = ++diceRollGeneration;
+  caption.textContent = rollerName ? `${rollerName} is rolling…` : 'Rolling…';
+  die.classList.remove('rolling'); void die.offsetWidth; die.classList.add('rolling');
+
+  let ticks = 0;
+  const totalTicks = 7;
+  const timer = setInterval(() => {
+    if (myGen !== diceRollGeneration) { clearInterval(timer); return; }
+    ticks++;
+    if (ticks >= totalTicks) {
+      clearInterval(timer);
+      renderDieFace(finalValue);
+      caption.textContent = rollerName ? `${rollerName} rolled a ${finalValue}.` : `Rolled a ${finalValue}.`;
+    } else {
+      renderDieFace(1 + Math.floor(Math.random() * 6));
+    }
+  }, 70);
+}
+
+// ---------- SignalR wiring ----------
+// This page is served BY the same ASP.NET Core process that hosts the hub
+// (see Program.cs -> app.UseStaticFiles()), so a relative URL always works,
+// locally or once deployed - no separate "backend URL" to configure.
+// Only override this if you deliberately host the frontend somewhere else,
+// by setting window.LUDO_BACKEND_URL before this script runs.
+const BACKEND_URL = (window.LUDO_BACKEND_URL) || '/gamehub';
+const connection = new signalR.HubConnectionBuilder()
+  .withUrl(BACKEND_URL)
+  .withAutomaticReconnect()
+  .build();
+
+let myConnectionId = null;
+let myRoomCode = null;
+let latestState = null;
+let selectableTokens = [];
+
+function showScreen(id){
+  ['screen-lobby','screen-waiting','screen-game'].forEach(s => {
+    document.getElementById(s).classList.toggle('hidden', s !== id);
+  });
+}
+function flashError(elId, msg){
+  const el = document.getElementById(elId);
+  el.textContent = msg; el.style.display = 'block';
+  clearTimeout(el._t);
+  el._t = setTimeout(() => el.style.display = 'none', 4500);
+}
+
+connection.on('RoomCreated', (roomCode, connId) => {
+  myRoomCode = roomCode; myConnectionId = connId;
+  document.getElementById('wait-code').textContent = roomCode;
+  showScreen('screen-waiting');
+});
+connection.on('RoomJoined', (roomCode, connId) => {
+  myRoomCode = roomCode; myConnectionId = connId;
+  document.getElementById('wait-code').textContent = roomCode;
+  showScreen('screen-waiting');
+});
+connection.on('ActionError', (msg) => {
+  const target = document.getElementById('screen-lobby').classList.contains('hidden') ? 'game-error' : 'lobby-error';
+  flashError(target, msg);
+});
+connection.on('DiceRolled', (byConnId, value, movable) => {
+  // Broadcast to the whole room (see GameHub.RollDice), so every player
+  // watches the same physical-looking roll happen, not just whoever rolled.
+  const roller = latestState?.players.find(p => p.connectionId === byConnId);
+  animateDiceRoll(value, roller ? roller.name : null);
+  selectableTokens = (byConnId === myConnectionId) ? movable : [];
+  renderTokens();
+});
+connection.on('GameWon', (winnerConnId) => {
+  const winner = latestState?.players.find(p => p.connectionId === winnerConnId);
+  document.getElementById('win-title').textContent = winner ? `${THEME[winner.color].name} Takes the Board` : 'We Have a Winner';
+  document.getElementById('win-sub').textContent = winner ? `${winner.name} brought every piece home first.` : '';
+  document.getElementById('win-overlay').classList.remove('hidden');
+});
+connection.on('StateUpdated', (state) => {
+  latestState = state;
+  if (state.status === 'InProgress' || state.status === 'Finished') {
+    showScreen('screen-game');
+    if (state.phase === 'AwaitingRoll') {
+      selectableTokens = [];
+      if (state.lastDiceRoll == null) { renderDieFace(0); document.getElementById('die-caption').textContent = ''; }
+    }
+    render();
+  } else {
+    renderWaitingRoom(state);
+  }
+});
+
+document.getElementById('btn-create').addEventListener('click', async () => {
+  const name = document.getElementById('create-name').value.trim();
+  if (!name) return flashError('lobby-error', 'Enter your name first.');
+  await ensureConnected();
+  connection.invoke('CreateRoom', name).catch(e => flashError('lobby-error', 'Could not reach server: ' + e));
+});
+document.getElementById('btn-join').addEventListener('click', async () => {
+  const name = document.getElementById('join-name').value.trim();
+  const code = document.getElementById('join-code').value.trim().toUpperCase();
+  if (!name) return flashError('lobby-error', 'Enter your name first.');
+  if (code.length !== 4) return flashError('lobby-error', 'Room codes are 4 letters.');
+  await ensureConnected();
+  connection.invoke('JoinRoom', code, name).catch(e => flashError('lobby-error', 'Could not reach server: ' + e));
+});
+document.getElementById('btn-start').addEventListener('click', () => {
+  connection.invoke('StartGame', myRoomCode).catch(e => flashError('game-error', String(e)));
+});
+document.getElementById('btn-roll').addEventListener('click', () => {
+  connection.invoke('RollDice', myRoomCode).catch(e => flashError('game-error', String(e)));
+});
+document.getElementById('btn-win-close').addEventListener('click', () => {
+  document.getElementById('win-overlay').classList.add('hidden');
+});
+
+async function ensureConnected(){
+  if (connection.state === signalR.HubConnectionState.Disconnected) {
+    try { await connection.start(); }
+    catch (e) { flashError('lobby-error', 'Cannot reach the Ludo backend at ' + BACKEND_URL + '. Is it running?'); throw e; }
+  }
+}
+
+// ---------- Rendering ----------
+function renderWaitingRoom(state){
+  showScreen('screen-waiting');
+  document.getElementById('wait-code').textContent = state.roomCode;
+  const list = document.getElementById('wait-players');
+  list.innerHTML = '';
+  state.players.forEach(p => {
+    const li = document.createElement('li');
+    const sw = document.createElement('span'); sw.className='swatch'; sw.style.background = THEME[p.color].css; sw.style.backgroundImage = `url(${THEME[p.color].img})`;
+    li.appendChild(sw);
+    const label = document.createElement('span'); label.textContent = `${p.name} — ${THEME[p.color].name}`;
+    li.appendChild(label);
+    const tag = document.createElement('span'); tag.className='tag'; tag.textContent = p.isHost ? 'Host' : '';
+    li.appendChild(tag);
+    list.appendChild(li);
+  });
+  const me = state.players.find(p => p.connectionId === myConnectionId);
+  const startBtn = document.getElementById('btn-start');
+  startBtn.disabled = !(me && me.isHost) || state.players.length < 2;
+  document.getElementById('wait-hint').textContent =
+    (me && me.isHost) ? (state.players.length < 2 ? 'Need at least 2 players.' : 'Ready when you are.') : 'Waiting for the host to start…';
+}
+
+const boardHost = document.getElementById('board-host');
+const boardSvg = buildBoardSvg();
+boardHost.appendChild(boardSvg);
+
+function render(){
+  if (!latestState) return;
+  const state = latestState;
+
+  const current = state.players[state.currentPlayerIndex];
+  const isMyTurn = current && current.connectionId === myConnectionId;
+  document.getElementById('turn-banner').textContent =
+    state.status === 'Finished' ? 'Match Concluded' :
+    current ? `${isMyTurn ? 'Your' : current.name + "'s"} Move (${THEME[current.color].name})` : '—';
+
+  document.getElementById('btn-roll').disabled = !(isMyTurn && state.phase === 'AwaitingRoll' && state.status === 'InProgress');
+
+  const panel = document.getElementById('players-panel');
+  panel.innerHTML = '';
+  state.players.forEach((p, idx) => {
+    const card = document.createElement('div');
+    card.className = 'player-card' + (idx === state.currentPlayerIndex && state.status==='InProgress' ? ' active' : '');
+    const sw = document.createElement('span'); sw.className='swatch'; sw.style.background = THEME[p.color].css; sw.style.backgroundImage = `url(${THEME[p.color].img})`;
+    card.appendChild(sw);
+    const name = document.createElement('span'); name.className='name';
+    name.textContent = p.name + (p.connectionId===myConnectionId ? ' (you)' : '') + (!p.isConnected ? ' — away' : '');
+    card.appendChild(name);
+    const pips = document.createElement('span'); pips.className='pips';
+    const finished = p.tokens.filter(t=>t.isFinished).length;
+    pips.textContent = p.hasWon ? '🏆 home' : `${finished}/4 home`;
+    card.appendChild(pips);
+    panel.appendChild(card);
+  });
+
+  if (state.lastEventMessage) {
+    const log = document.getElementById('event-log');
+    const line = document.createElement('div');
+    line.textContent = state.lastEventMessage;
+    log.prepend(line);
+    while (log.children.length > 30) log.removeChild(log.lastChild);
+  }
+
+  renderTokens();
+}
+
+function renderTokens(){
+  if (!latestState) return;
+  const layer = document.getElementById('token-layer');
+  layer.innerHTML = '';
+  const NS = 'http://www.w3.org/2000/svg';
+  const state = latestState;
+  const current = state.players[state.currentPlayerIndex];
+  const isMyTurn = current && current.connectionId === myConnectionId;
+
+  const occupancy = {};
+
+  state.players.forEach(p => {
+    p.tokens.forEach(t => {
+      const coord = tokenCellCoord(p.color, t.steps, t.id % 4);
+      const key = coord.join(',');
+      occupancy[key] = (occupancy[key] || 0);
+      const fanIndex = occupancy[key]++;
+
+      const center = cellCenter(coord);
+      const fanOffset = fanIndex * 5;
+      const cx = center.x + (fanIndex ? (fanIndex%2===0?-1:1)*fanOffset : 0);
+      const cy = center.y + (fanIndex > 1 ? fanOffset : 0);
+
+      const isMovable = isMyTurn && p.connectionId === myConnectionId && selectableTokens.includes(t.id) && state.phase === 'AwaitingMove';
+
+      const grp = document.createElementNS(NS, 'g');
+      grp.setAttribute('class', 'token-svg' + (isMovable ? ' movable' : ''));
+      grp.setAttribute('transform', `translate(${cx},${cy})`);
+
+      // Thin color-coded ring (not a filled circle) so the piece reads as
+      // "that player's color" without boxing the character into a disc -
+      // the sprite itself keeps its natural silhouette on top.
+      const idRing = document.createElementNS(NS,'circle');
+      idRing.setAttribute('r', 10);
+      idRing.setAttribute('fill', 'none');
+      idRing.setAttribute('stroke', THEME[p.color].css);
+      idRing.setAttribute('stroke-width', 2.2);
+      grp.appendChild(idRing);
+
+      // The character sprite, shown at its natural proportions (no circular
+      // clip, no cropping) - just scaled to fit the same token footprint.
+      const img = document.createElementNS(NS,'image');
+      img.setAttribute('href', THEME[p.color].img);
+      img.setAttributeNS('http://www.w3.org/1999/xlink', 'href', THEME[p.color].img);
+      img.setAttribute('x', -9); img.setAttribute('y', -9);
+      img.setAttribute('width', 18); img.setAttribute('height', 18);
+      img.setAttribute('preserveAspectRatio', 'xMidYMid meet');
+      grp.appendChild(img);
+
+      if (isMovable){
+        // Invisible, larger-than-the-visible-piece hit target - on a phone
+        // the board can be scaled down a lot, and a finger is much wider
+        // than a 1.6px stroke ring, so we give taps real room to land.
+        const hitArea = document.createElementNS(NS,'circle');
+        hitArea.setAttribute('r', 16);
+        hitArea.setAttribute('fill', '#FFFFFF');
+        hitArea.setAttribute('opacity', '0.001');
+        grp.insertBefore(hitArea, grp.firstChild);
+
+        const ring = document.createElementNS(NS,'circle');
+        ring.setAttribute('class','ring');
+        ring.setAttribute('r', 13);
+        ring.setAttribute('fill', 'none');
+        ring.setAttribute('stroke', THEME[p.color].deep);
+        ring.setAttribute('stroke-width', 1.6);
+        grp.appendChild(ring);
+        grp.addEventListener('click', () => {
+          connection.invoke('MoveToken', myRoomCode, t.id).catch(e => flashError('game-error', String(e)));
+        });
+      }
+
+      layer.appendChild(grp);
+    });
+  });
+}
+</script>
+</body>
+</html>
